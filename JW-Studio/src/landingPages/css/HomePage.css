@@ -935,7 +935,7 @@ nav {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: red;
+  background: rgb(255, 255, 255);
   color: #fff;
   width: 42px;
   height: 42px;
@@ -948,3 +948,20 @@ nav {
 }
 
 
+/* Smooth page scrolling */
+html, body {
+  scroll-behavior: smooth;
+}
+
+/* Smooth show/hide for the floating "to top" button */
+.lx-footer__to-top {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .3s ease, transform .3s ease;
+  pointer-events: none; /* avoid clicks when hidden */
+}
+.lx-footer__to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}

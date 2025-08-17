@@ -1,9 +1,10 @@
 // src/landingPages/HomePage.jsx
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
-// Your page-specific CSS (keep if you have it)
+// Your page-specific CSS (adjust if needed)
 import "./css/HomePage.css";
 
 // Imported images
@@ -13,15 +14,59 @@ import image3 from "./images/logo.png";                             // logo
 
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showToTop, setShowToTop] = useState(false);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
+  // Show/Hide "to top" button based on header visibility
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowToTop(!entry.isIntersecting),
+      { root: null, threshold: 0.6 } // header >=60% visible => hide button
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Replace your current handleToTop with this:
+const handleToTop = (e) => {
+  e.preventDefault();
+
+  const startY = window.scrollY || document.documentElement.scrollTop;
+  const duration = 1200; // ms — make this larger for slower scroll
+  const startTime = performance.now();
+
+  // smooth ease (fast start/end, slow middle)
+  const easeInOutQuad = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
+
+  const step = (now) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeInOutQuad(progress);
+
+    // scroll from current Y down to 0
+    window.scrollTo(0, Math.round(startY * (1 - eased)));
+
+    if (elapsed < duration) requestAnimationFrame(step);
+  };
+
+  requestAnimationFrame(step);
+};
+
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <div>
-      {/* ===== Header ===== */}
-      <header className="header" id="top">
+      {/* ===== Header / First Section ===== */}
+      <header className="header" id="top" ref={headerRef}>
         <nav>
           {/* Desktop logo */}
           <div className="nav__logo">
@@ -30,42 +75,25 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* Mobile logo (matches your CSS expectations) */}
+          {/* Mobile logo (kept to match your CSS expectations) */}
           <div className="nav__logo2">
             <a href="/">
               <img src={image3} alt="Logo" className="logo-color" />
             </a>
           </div>
 
-          {/* Nav links 
-              - Desktop: your CSS displays as a centered pill
-              - Mobile: your CSS sets display:none; we only override when open
-          */}
+          {/* Nav links
+              - Desktop: CSS controls layout
+              - Mobile: hidden by CSS; we set display:flex only when menuOpen */}
           <ul
             className="nav__links"
             id="nav-links"
             style={menuOpen ? { display: "flex" } : undefined}
           >
-            <li>
-              <a href="#home" data-aos="fade-down" data-aos-duration="1500">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#about" data-aos="fade-down" data-aos-duration="1800">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="#booking" data-aos="fade-down" data-aos-duration="2100">
-                Booking
-              </a>
-            </li>
-            <li>
-              <a href="#contact" data-aos="fade-down" data-aos-duration="2400">
-                Contact Us
-              </a>
-            </li>
+            <li><a href="#home"     onClick={closeMenu} data-aos="fade-down" data-aos-duration="1500">Home</a></li>
+            <li><a href="/aboutPage"    onClick={closeMenu} data-aos="fade-down" data-aos-duration="1800">About Us</a></li>
+            <li><a href="#booking"  onClick={closeMenu} data-aos="fade-down" data-aos-duration="2100">Booking</a></li>
+            <li><a href="#contact"  onClick={closeMenu} data-aos="fade-down" data-aos-duration="2400">Contact Us</a></li>
           </ul>
 
           {/* Hamburger (mobile) */}
@@ -74,6 +102,8 @@ export default function HomePage() {
             className="hamberger-menu"
             id="hamberger-menu"
             alt="Menu"
+            aria-label="Open navigation menu"
+            aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
           />
         </nav>
@@ -88,13 +118,9 @@ export default function HomePage() {
           />
 
           <div className="header__content">
-            <h1 data-aos="fade-right" data-aos-duration="2000">
-              DISCOVER
-            </h1>
-            <h2 data-aos="fade-left" data-aos-duration="2000">
-              WORLDWIDE
-            </h2>
-            <p data-aos="fade-up" data-aos-duration="2000">
+            <h1 data-aos="fade-right" data-aos-duration="2000">DISCOVER</h1>
+            <h2 data-aos="fade-left"  data-aos-duration="2000">WORLDWIDE</h2>
+            <p  data-aos="fade-up"    data-aos-duration="2000">
               We are passionate about uncovering the wonders of our diverse world
               and sharing them with you. Our mission is to inspire a sense of
               discovery, and stories that make our planet unique.
@@ -136,7 +162,7 @@ export default function HomePage() {
             Ensure a clean and intuitive design that allows users to easily
             navigate through the booking process.
           </p>
-            <a href="#">Read More</a>
+          <a href="#">Read More</a>
         </div>
       </div>
 
@@ -153,6 +179,7 @@ export default function HomePage() {
           </div>
 
           <div className="packages-bw__grid" data-aos="fade-down" data-aos-duration="1500">
+            {/* Starter */}
             <article className="packages-bw__card packages-bw__reveal" aria-label="Starter plan" data-aos="zoom-in">
               <div className="packages-bw__inner">
                 <span className="packages-bw__badge">Starter</span>
@@ -167,6 +194,7 @@ export default function HomePage() {
               </div>
             </article>
 
+            {/* Pro (Featured) */}
             <article className="packages-bw__card packages-bw__card--featured packages-bw__reveal" aria-label="Pro plan" data-aos="zoom-in">
               <div className="packages-bw__inner">
                 <span className="packages-bw__badge">Most Popular</span>
@@ -181,6 +209,7 @@ export default function HomePage() {
               </div>
             </article>
 
+            {/* Elite */}
             <article className="packages-bw__card packages-bw__reveal" aria-label="Elite plan" data-aos="zoom-in">
               <div className="packages-bw__inner">
                 <span className="packages-bw__badge">Elite</span>
@@ -231,7 +260,24 @@ export default function HomePage() {
           </p>
         </div>
 
-        <a href="#top" className="lx-footer__to-top"><i className="ri-arrow-up-line"></i></a>
+        {/* Smooth scroll to first section; auto-hide at top */}
+        <a
+
+           
+          href="#top"
+          className="lx-footer__to-top z-10"
+          onClick={handleToTop}
+          style={{
+            opacity: showToTop ? 1 : 0,
+            pointerEvents: showToTop ? "auto" : "none",
+            transform: showToTop ? "scale(1)" : "scale(0.95)",
+            transition: "opacity .25s ease, transform .25s ease",
+          }}
+          aria-label="Back to top"
+          title="Back to top"
+        >
+          <i className="fas fa-arrow-up text-black"></i>
+        </a>
       </footer>
     </div>
   );
