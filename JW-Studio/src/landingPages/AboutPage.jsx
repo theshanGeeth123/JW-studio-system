@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Camera, Clapperboard, PenLine, Search, Play, Github, Twitter, Linkedin, Facebook, Instagram } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function AboutPage() {
+
+    useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
+
   const [open, setOpen] = useState(false);
 
   return (
@@ -11,16 +19,16 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             <a href="/" className="flex items-center gap-2">
-              <h1 className="text-2xl font-semibold tracking-wide text-neutral-800">Lx Gallery</h1>
+              <h1 className="text-2xl font-semibold tracking-wide text-neutral-800" data-aos="fade-right" data-aos-duration="2000">Lx Gallery</h1>
             </a>
 
             {/* Desktop nav */}
             <nav className="hidden md:flex items-center gap-6">
-              <a href="/" className="hover:underline">Home</a>
-              <a href="/about" className="underline underline-offset-4">About</a>
-              <a href="/gallery" className="hover:underline">Gallery</a>
-              <a href="/blog" className="hover:underline">Blog</a>
-              <a href="/contact" className="hover:underline">Contact</a>
+              <a href="" className="hover:underline">Home</a>
+              <a href="" className="underline underline-offset-4">About</a>
+              <a href="" className="hover:underline">Gallery</a>
+              <a href="" className="hover:underline">Blog</a>
+              <a href="" className="hover:underline">Contact</a>
 
               <form action="/" method="get" className="ml-2 flex items-center gap-2 border rounded-full pl-3 pr-1 py-1">
                 <Search className="w-4 h-4" aria-hidden />
@@ -61,11 +69,11 @@ export default function AboutPage() {
           {open && (
             <div id="mobile-menu" className="md:hidden pb-4">
               <nav className="flex flex-col gap-3">
-                <a href="/" className="py-2 border-b">Home</a>
-                <a href="/about" className="py-2 border-b">About</a>
-                <a href="/gallery" className="py-2 border-b">Gallery</a>
-                <a href="/blog" className="py-2 border-b">Blog</a>
-                <a href="/contact" className="py-2">Contact</a>
+                <a href="" className="py-2 border-b">Home</a>
+                <a href="" className="py-2 border-b">About</a>
+                <a href="" className="py-2 border-b">Gallery</a>
+                <a href="" className="py-2 border-b">Blog</a>
+                <a href="" className="py-2">Contact</a>
               </nav>
               <form action="/" method="get" className="mt-3 flex items-center gap-2 border rounded-full pl-3 pr-1 py-1">
                 <Search className="w-4 h-4" aria-hidden />

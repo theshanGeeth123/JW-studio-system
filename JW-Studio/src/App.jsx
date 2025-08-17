@@ -1,12 +1,14 @@
 import React from 'react'
+import { Routes, Route } from "react-router-dom";
 import AboutPage from './landingPages/AboutPage'
 
 function App() {
   return (
-    <div>
-      <AboutPage />
-    </div>
+    <Routes>
+      <Route path="/" element={<AboutPage />} />
+     
+    </Routes>
   )
 }
 
-export default App
+export default App;
