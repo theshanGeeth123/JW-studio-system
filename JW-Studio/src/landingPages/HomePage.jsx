@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Footer from "./Footer";
 
 // Images
 import image1 from "./images/cody-lannom-G95AReIh_Ko-unsplash.jpg"; // main header image
@@ -275,11 +276,7 @@ export default function HomePage() {
           "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
 
           // border glow (static, no animation)
-          "before:absolute before:inset-0 before:rounded-[inherit] before:p-[1px]",
-          "before:[-webkit-mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)]",
-          "before:[mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)]",
-          "before:[-webkit-mask-composite:xor] before:[mask-composite:exclude]",
-          "before:bg-[conic-gradient(from_180deg,#ffffff_0%,#bfbfbf_12%,#000000_35%,#333333_55%,#ffffff_75%,#999999_100%)] before:opacity-15",
+          
 
           // gentle sheen (shorter anim)
           "after:pointer-events-none after:absolute after:-left-1/2 after:-top-full after:h-[200%] after:w-[120%]",
@@ -310,7 +307,7 @@ export default function HomePage() {
                 key={t}
                 className="flex items-center gap-2 border-b border-dashed border-white/15 py-[0.55rem] last:border-b-0"
               >
-                <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-45 after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
+                <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-305 after:scale-x-[-1] after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
                 {t}
               </li>
             ))}
@@ -331,11 +328,11 @@ export default function HomePage() {
           "hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]",
           "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
 
-          "before:absolute before:inset-0 before:rounded-[inherit] before:p-[1px]",
-          "before:[-webkit-mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)]",
-          "before:[mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)]",
-          "before:[-webkit-mask-composite:xor] before:[mask-composite:exclude]",
-          "before:bg-[conic-gradient(from_180deg,#ffffff_0%,#bfbfbf_12%,#000000_35%,#333333_55%,#ffffff_75%,#999999_100%)] before:opacity-25",
+          // "before:absolute before:inset-0 before:rounded-[inherit] before:p-[1px]",
+          // "before:[-webkit-mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)]",
+          // "before:[mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)]",
+          // "before:[-webkit-mask-composite:xor] before:[mask-composite:exclude]",
+          // "before:bg-[conic-gradient(from_180deg,#ffffff_0%,#bfbfbf_12%,#000000_35%,#333333_55%,#ffffff_75%,#999999_100%)] before:opacity-25",
 
           "after:pointer-events-none after:absolute after:-left-1/2 after:-top-full after:h-[200%] after:w-[120%]",
           "after:rotate-[8deg] after:bg-[linear-gradient(105deg,transparent_0_35%,rgba(255,255,255,0.10)_45%,rgba(255,255,255,0.22)_50%,rgba(255,255,255,0.10)_55%,transparent_65%_100%)]",
@@ -365,7 +362,7 @@ export default function HomePage() {
                 key={t}
                 className="flex items-center gap-2 border-b border-dashed border-white/15 py-[0.55rem] last:border-b-0"
               >
-                <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-45 after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
+                <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-305 after:scale-x-[-1] after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
                 {t}
               </li>
             ))}
@@ -386,11 +383,11 @@ export default function HomePage() {
           "hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]",
           "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
 
-          "before:absolute before:inset-0 before:rounded-[inherit] before:p-[1px]",
-          "before:[-webkit-mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)]",
-          "before:[mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)]",
-          "before:[-webkit-mask-composite:xor] before:[mask-composite:exclude]",
-          "before:bg-[conic-gradient(from_180deg,#ffffff_0%,#bfbfbf_12%,#000000_35%,#333333_55%,#ffffff_75%,#999999_100%)] before:opacity-15",
+          // "before:absolute before:inset-0 before:rounded-[inherit] before:p-[1px]",
+          // "before:[-webkit-mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)]",
+          // "before:[mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)]",
+          // "before:[-webkit-mask-composite:xor] before:[mask-composite:exclude]",
+          // "before:bg-[conic-gradient(from_180deg,#ffffff_0%,#bfbfbf_12%,#000000_35%,#333333_55%,#ffffff_75%,#999999_100%)] before:opacity-15",
 
           "after:pointer-events-none after:absolute after:-left-1/2 after:-top-full after:h-[200%] after:w-[120%]",
           "after:rotate-[8deg] after:bg-[linear-gradient(105deg,transparent_0_35%,rgba(255,255,255,0.08)_45%,rgba(255,255,255,0.18)_50%,rgba(255,255,255,0.08)_55%,transparent_65%_100%)]",
@@ -420,7 +417,7 @@ export default function HomePage() {
                 key={t}
                 className="flex items-center gap-2 border-b border-dashed border-white/15 py-[0.55rem] last:border-b-0"
               >
-                <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-45 after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
+                <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-305 after:scale-x-[-1] after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
                 {t}
               </li>
             ))}
@@ -441,60 +438,9 @@ export default function HomePage() {
 </section>
 
 
-      {/* ===== Footer ===== */}
-      <footer className="lx-footer relative bg-[#111] px-4 py-8 text-center text-[#f4f4f4]">
-        <div className="lx-footer__subscribe" data-aos="fade-up">
-          <h3 className="mb-4 font-medium">Stay up to date on the latest from Lx Gallery</h3>
-          <form className="lx-footer__form flex flex-wrap justify-center gap-2">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              required
-              className="min-w-[250px] rounded-[8px] border-0 bg-[#fff7db] px-4 py-[0.8rem] outline-none"
-            />
-            <button type="submit" className="rounded-[8px] border-0 bg-red-600 px-5 py-[0.8rem] font-semibold text-white">
-              Subscribe
-            </button>
-          </form>
-        </div>
-
-        <div className="lx-footer__social mt-8" data-aos="fade-up">
-          <h4 className="mb-4 font-semibold">Follow LX GALLERY</h4>
-          <div className="lx-footer__icons flex justify-center gap-2">
-            {[
-              'ri-linkedin-fill',
-              'ri-instagram-line',
-              'ri-pinterest-fill',
-              'ri-quora-line',
-              'ri-github-fill',
-            ].map((icon) => (
-              <a
-                key={icon}
-                href="#"
-                className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-full bg-white text-black text-[1.2rem] transition-transform duration-300 hover:scale-110"
-              >
-                <i className={icon}></i>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="lx-footer__meta mt-8 text-[#b3b3b3]" data-aos="fade-up">
-          <p>
-            Total Website Visit
-            <br />
-            00
-          </p>
-          <p className="text-[0.9rem]">
-            Copyright © 2023 All rights reserved | Made with <span className="text-red-600">❤</span> by{' '}
-            <a href="#" className="text-[#00aaff]">
-              Lx
-            </a>
-          </p>
-        </div>
-
-        {/* Floating to-top button */}
-        <a
+      <Footer/>
+      
+      <a
           href="#top"
           className="lx-footer__to-top fixed bottom-5 right-5 z-10 flex h-[42px] w-[42px] items-center justify-center rounded-full bg-white text-black shadow-[0_0_10px_rgba(0,0,0,0.4)] transition-opacity transition-transform duration-300"
           onClick={handleToTop}
@@ -508,7 +454,9 @@ export default function HomePage() {
         >
           <i className="fas fa-arrow-up"></i>
         </a>
-      </footer>
+
+          
+        
     </div>
   );
 }
