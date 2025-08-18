@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function Footer() {
   return (
-    <footer className="lx-footer relative bg-[#111] px-4 py-8 text-center text-[#f4f4f4]">
+    <footer className="lx-footer relative bg-gray-950 px-4 py-8 text-center text-[#f4f4f4] border-t-1 rounded-t-[20px] shadow-lg b">
       {/* Subscribe */}
       <div className="lx-footer__subscribe" data-aos="fade-up">
         <h3 className="mb-4 font-medium">
@@ -13,7 +13,7 @@ function Footer() {
 
       {/* Social icons */}
       <div className="lx-footer__social mt-8" data-aos="fade-up">
-        <h4 className="mb-4 font-semibold">Follow LX GALLERY</h4>
+        <h4 className="mb-4 font-semibold">Follow JW-STUDIO </h4>
         <div className="lx-footer__icons flex justify-center gap-2">
           {[
             { icon: "fab fa-linkedin-in", url: "#" },
@@ -40,7 +40,7 @@ function Footer() {
         <p>
           Total Website Visit
           <br />
-          00
+          
         </p>
         <p className="text-[0.9rem]">
           Copyright © 2023 All rights reserved | Made {" "}

@@ -68,7 +68,7 @@ export default function HomePage() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="font-[Poppins] text-[var(--text-dark)]">
+    <div className="font-[Poppins] text-[var(--text-dark)] ">
       {/* ===== Header / First Section ===== */}
       <header id="top" ref={headerRef} className="relative isolate">
         <nav
@@ -436,9 +436,9 @@ export default function HomePage() {
     </p>
   </div>
 </section>
+      <div className="bg-black"><Footer/></div>
 
-
-      <Footer/>
+      
       
       <a
           href="#top"

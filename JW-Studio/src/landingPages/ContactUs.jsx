@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import NavBar from "./NavBar";
+
 
 export default function ContactUs() {
   // STATE (fixed: "cosnt" typo)
@@ -42,11 +45,12 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="bg-gray-50 text-gray-900 font-sans min-h-screen">
+    <>
+      <NavBar />
+
+    <div className="bg-gray-50 text-gray-900 font-sans min-h-screen mt-25">
       {/* Header */}
-      <header className="h-20 bg-white border-b border-gray-200 flex items-center justify-center">
-        <h1 className="text-2xl font-bold">JW STUDIO</h1>
-      </header>
+      
 
       {/* Main */}
       <main className="container mx-auto px-4 py-12">
@@ -214,12 +218,62 @@ export default function ContactUs() {
             ))}
           </div>
         </section>
+        
       </main>
 
-      {/* Footer */}
-      <footer className="h-20 bg-white border-t border-gray-200 flex items-center justify-center mt-12">
-        <p className="text-gray-600">© 2023 JW Studio. All rights reserved.</p>
-      </footer>
+            
+      
     </div>
+    
+            <footer className="lx-footer relative bg-gray-950 px-4 py-8 text-center text-[#f4f4f4] border-t-1 rounded-t-[20px] shadow-lg b">
+      {/* Subscribe */}
+      <div className="lx-footer__subscribe" data-aos="fade-up">
+        <h3 className="mb-4 font-medium">
+          Stay up to date on the latest from Lx Gallery
+        </h3>
+      </div>
+
+      {/* Social icons */}
+      <div className="lx-footer__social mt-8" data-aos="fade-up">
+        <h4 className="mb-4 font-semibold">Follow JW-STUDIO </h4>
+        <div className="lx-footer__icons flex justify-center gap-2">
+          {[
+            { icon: "fab fa-linkedin-in", url: "#" },
+            { icon: "fab fa-instagram", url: "#" },
+            { icon: "fab fa-pinterest-p", url: "#" },
+            { icon: "fab fa-quora", url: "#" },
+            { icon: "fab fa-github", url: "#" },
+          ].map((item, index) => (
+            <a
+              key={index}
+              href={item.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-full bg-white text-black text-[1.2rem] transition-transform duration-300 hover:scale-110"
+            >
+              <i className={item.icon}></i>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Meta info */}
+      <div className="lx-footer__meta mt-8 text-[#b3b3b3]" data-aos="fade-up">
+        <p>
+          Total Website Visit
+          <br />
+          
+        </p>
+        <p className="text-[0.9rem]">
+          Copyright © 2023 All rights reserved | Made {" "}
+          <span className="text-red-600"></span> by{" "}
+          <a href="#" className="text-[#00aaff]">
+            JW
+          </a>
+        </p>
+      </div>
+    </footer>
+
+</>
   );
 }

@@ -8,7 +8,7 @@ import ContactUs from './landingPages/ContactUs';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<AboutPage />} />
       <Route path='/aboutPage' element={<AboutPage/>}/>
       <Route path='/homePage' element={<HomePage/>}/>
       <Route path="/galleryPage" element={<Gallery />} />
