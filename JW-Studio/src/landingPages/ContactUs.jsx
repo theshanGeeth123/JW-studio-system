@@ -1,7 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 export default function ContactUs() {
+  // STATE (fixed: "cosnt" typo)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSending, setIsSending] = useState(false);
+
+  // Your EmailJS credentials (as requested)
+  const serviceId = "service_4q8knyw";
+  const templateId = "template_1scgr2v";
+  const publicKey = "qQpCCm36KM-_sqoMq";
+
+  // SUBMIT
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Build the params to match your EmailJS template vars
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      message: message,
+    };
+
+    try {
+      setIsSending(true);
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      alert("Thanks! We’ll get back to you soon.");
+      // reset form
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      alert("Sorry, something went wrong while sending your message.");
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   return (
     <div className="bg-gray-50 text-gray-900 font-sans min-h-screen">
       {/* Header */}
@@ -15,7 +54,8 @@ export default function ContactUs() {
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Get in touch with our team for inquiries, bookings, or any questions about our camera studio services.
+            Get in touch with our team for inquiries, bookings, or any questions
+            about our camera studio services.
           </p>
         </div>
 
@@ -24,7 +64,9 @@ export default function ContactUs() {
           {/* Form */}
           <section className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
             <h2 className="text-2xl font-semibold mb-6">Send Us a Message</h2>
-            <form className="space-y-6">
+
+            {/* IMPORTANT: onSubmit wired to EmailJS */}
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1">
                   Full Name
@@ -32,6 +74,10 @@ export default function ContactUs() {
                 <input
                   type="text"
                   id="name"
+                  name="name" // not required for send(), but fine to keep
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-gray-400"
                 />
               </div>
@@ -43,35 +89,12 @@ export default function ContactUs() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-gray-400"
                 />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-gray-400"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-1">
-                  Subject
-                </label>
-                <select
-                  id="subject"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-gray-400"
-                >
-                  <option value="">Select a subject</option>
-                  <option value="booking">Studio Booking</option>
-                  <option value="equipment">Equipment Rental</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="feedback">Feedback</option>
-                </select>
               </div>
 
               <div>
@@ -80,16 +103,23 @@ export default function ContactUs() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-gray-400"
                 />
               </div>
 
               <button
-                type="button"
-                className="w-full bg-black text-white py-3 px-6 rounded-md hover:bg-gray-800 transition duration-300 font-medium"
+                type="submit"
+                disabled={isSending}
+                className={`w-full bg-black text-white py-3 px-6 rounded-md transition duration-300 font-medium ${
+                  isSending ? "opacity-70 cursor-not-allowed" : "hover:bg-gray-800"
+                }`}
               >
-                Send Message
+                {isSending ? "Sending..." : "Send Message"}
               </button>
             </form>
           </section>
