@@ -83,7 +83,7 @@ export default function HomePage() {
   {/* Mobile logo */}
   <div className="nav__logo2 block lg:hidden">
     <a href="/">
-      <img src={image3} alt="Logo" className="logo-color max-w-[120px]" />
+      <img src={image3} alt="Logo" className="logo-color max-w-[120px] max-sm:max-w-[90px] max-sm:mt-6 max-sm:ml-[-20px]" />
     </a>
   </div>
 
@@ -101,20 +101,14 @@ export default function HomePage() {
       "z-30",
 
       // Desktop: always flex and centered
-      "hidden lg:flex",
+      " lg:flex",
       "absolute left-1/2 -translate-x-1/2 top-10",
 
       // Mobile: we’ll toggle visibility below via inline style
-      "sm:top-[70px]","max-md:w-[50%] max-lg:text-[13px] max-lg:px-5  max-md:text-[10px] max-sm:text-[9px] max-sm:px-3 max-sm:mt-[8px] max-sm:ml-[25px]",
+      "sm:top-[70px]","max-md:w-[50%] max-lg:text-[13px] max-lg:px-5  max-md:text-[12px] max-sm:text-[12px] max-sm:ml-[45px] max-sm:w-[80%] max-sm:px-3 max-sm:mt-[8px] max-sm:ml-[25px]",
    
     ].join(" ")}
-    style={
-      // On mobile (<lg) show/hide with state; on desktop we force display via classes above.
-      // We ONLY apply inline style when <lg to avoid fighting with lg:flex.
-      window.innerWidth < 1024
-        ? (menuOpen ? { display: "flex" } : { display: "none" })
-        : undefined
-    }
+   
   >
     <li>
       <a href="#home" onClick={() => setMenuOpen(false)} data-aos="fade-down" data-aos-duration="1500">
@@ -139,7 +133,7 @@ export default function HomePage() {
   </ul>
 
   {/* Hamburger (mobile only) */}
-  <button
+  {/* <button
     type="button"
     aria-label="Open navigation menu"
     aria-expanded={menuOpen}
@@ -152,7 +146,7 @@ export default function HomePage() {
       alt="Menu"
       className="h-6 w-6 object-contain "
     />
-  </button>
+  </button> */}
 </nav>
 
         <div className="header__container mb-30 grid md:[grid-template-columns:minmax(1rem,1fr)_minmax(0,calc(1200px*0.4))_minmax(0,calc(1200px*0.6))_minmax(1rem,1fr)] md:items-center">
