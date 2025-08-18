@@ -36,11 +36,15 @@ export default function Gallery() {
     <NavBar />
 
 
-    <section className="flex flex-col md:flex-row min-h-[85vh]">
+<section className="flex flex-col lg:flex-row min-h-[85vh] mt-10 max-lg:mt-30">
   {/* Left: content */}
-  <div className="basis-full md:basis-2/5  p-6 md:p-10 flex items-center">
+  <div className="basis-full lg:basis-2/5 p-6 lg:p-10 flex items-center">
     <div className="max-w-xl">
-      <h1 className="text-3xl md:text-5xl font-bold leading-tight" data-aos="fade-right" data-aos-duration="1000">
+      <h1
+        className="text-3xl md:text-5xl font-bold leading-tight"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      >
         Capture Your Beautiful Moments
       </h1>
       <p className="mt-4 text-gray-600 md:text-lg">
@@ -66,9 +70,11 @@ export default function Gallery() {
   </div>
 
   {/* Right: image */}
-  <div className="basis-full md:basis-3/5  relative flex items-center justify-center bg-gray-100 " data-aos="zoom-in" data-aos-duration="2000">
-    {/* If you want the image bright, keep as-is; if you want it dimmed, add the overlay below */}
-    {/* <div className="absolute inset-0 bg-white/40 pointer-events-none" /> */}
+  <div
+    className="basis-full lg:basis-3/5 relative flex items-center justify-center bg-gray-100"
+    data-aos="zoom-in"
+    data-aos-duration="2000"
+  >
     <img
       src={img1}
       alt="JW Studio collage"
@@ -78,15 +84,16 @@ export default function Gallery() {
 </section>
 
 
+
     
-    <section id="gallery-section" className="py-16 bg-black/86 rounded-t-[20px]">
+    <section id="gallery-section" className="py-16 bg-black/86 rounded-t-[20px] ">
       {/* Local CSS-in-JSX for small animation to mimic the original .animate/zoom */}
       <style>{`
         @keyframes zoom { from { transform: scale(0.92); opacity: .6 } to { transform: scale(1); opacity: 1 } }
         .animate-zoom { animation: zoom .35s ease-in 1 }
       `}</style>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ">
         {/* Heading */}
         <h2 className="text-4xl font-extrabold tracking-tight uppercase mb-10 text-white">
           Gal<span className="text-red-600">lery</span>
