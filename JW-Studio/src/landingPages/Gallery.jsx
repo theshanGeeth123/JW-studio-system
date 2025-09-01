@@ -36,7 +36,7 @@ export default function Gallery() {
     <NavBar />
 
 
-<section className="flex flex-col lg:flex-row min-h-[85vh] mt-10 max-lg:mt-30">
+<section className="flex flex-col lg:flex-row min-h-[85vh] ">
   {/* Left: content */}
   <div className="basis-full lg:basis-2/5 p-6 lg:p-10 flex items-center">
     <div className="max-w-xl">

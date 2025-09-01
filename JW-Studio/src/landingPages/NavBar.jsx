@@ -8,85 +8,110 @@ import image3 from "./images/logo.png";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
+  // Init AOS + close menu on scroll
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
-    
-    // Add scroll detection for navbar style change
+
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      if (menuOpen) setMenuOpen(false);
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [menuOpen]);
+
+  // Lock body scroll while menu is open
+  useEffect(() => {
+    const body = document.body;
+    if (menuOpen) {
+      body.style.overflow = "hidden";
+      body.style.touchAction = "none";
+    } else {
+      body.style.overflow = "";
+      body.style.touchAction = "";
+    }
+    return () => {
+      body.style.overflow = "";
+      body.style.touchAction = "";
+    };
+  }, [menuOpen]);
+
+  // Close menu when resizing to desktop
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onChange = (e) => e.matches && setMenuOpen(false);
+    if (mq.matches) setMenuOpen(false);
+    mq.addEventListener
+      ? mq.addEventListener("change", onChange)
+      : mq.addListener(onChange);
+    return () => {
+      mq.removeEventListener
+        ? mq.removeEventListener("change", onChange)
+        : mq.removeListener(onChange);
+    };
   }, []);
 
   return (
-    <nav className={`fixed inset-x-0 top-0 z-50 w-full px-4 py-3 transition-all duration-300 ${isScrolled ? 'bg-gray-900/90 backdrop-blur-md shadow-md' : 'bg-transparent'}`}>
+    <nav className="relative w-full px-4 py-3">
       <div className="mx-auto max-w-[1200px] flex items-center justify-between">
-        {/* Logo - shown on all screens */}
+        {/* Logo */}
         <div className="z-50">
           <a href="/">
-            <img 
-              src={image3} 
-              alt="Logo" 
-              className="logo-color w-24 md:w-32 lg:w-40 transition-all duration-300" 
+            <img
+              src={image3}
+              alt="Logo"
+              className="logo-color w-24 md:w-32 lg:w-40 transition-all duration-300"
             />
           </a>
         </div>
 
-        {/* Desktop Navigation (Pill) */}
+        {/* Desktop Navigation (Pill style) */}
         <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2">
           <ul
             className={[
               "rounded-[32px] bg-gray-900/80 backdrop-blur py-3",
-              "text-white font-semibold",
+              "text-white font-medium tracking-wide",
               "items-center gap-8 xl:gap-12",
-              "transition-all duration-300",
               "flex justify-center px-8 xl:px-12",
-              "shadow-lg",
+              "shadow-lg text-base md:text-lg",
             ].join(" ")}
           >
             <li>
-              <a 
-                href="homePage" 
+              <a
+                href="homePage"
                 className="hover:text-amber-400 transition-colors duration-200 py-2 px-1"
-                data-aos="fade-down" 
+                data-aos="fade-down"
                 data-aos-duration="1500"
               >
                 Home
               </a>
             </li>
             <li>
-              <a 
-                href="/aboutPage" 
+              <a
+                href="/aboutPage"
                 className="hover:text-amber-400 transition-colors duration-200 py-2 px-1"
-                data-aos="fade-down" 
+                data-aos="fade-down"
                 data-aos-duration="1800"
               >
                 About Us
               </a>
             </li>
             <li>
-              <a 
-                href="#booking" 
+              <a
+                href="#booking"
                 className="hover:text-amber-400 transition-colors duration-200 py-2 px-1"
-                data-aos="fade-down" 
+                data-aos="fade-down"
                 data-aos-duration="2100"
               >
                 Booking
               </a>
             </li>
             <li>
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="hover:text-amber-400 transition-colors duration-200 py-2 px-1"
-                data-aos="fade-down" 
+                data-aos="fade-down"
                 data-aos-duration="2400"
               >
                 Contact Us
@@ -100,6 +125,7 @@ export default function NavBar() {
           type="button"
           aria-label="Open navigation menu"
           aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
           onClick={() => setMenuOpen((v) => !v)}
           className="lg:hidden z-50 h-12 w-12 flex items-center justify-center rounded-full bg-white/80 border border-white/80 transition-all active:scale-95"
         >
@@ -107,35 +133,39 @@ export default function NavBar() {
         </button>
 
         {/* Mobile Navigation Menu */}
-        <div className={`
-          lg:hidden fixed inset-0 bg-gray-900/95 backdrop-blur-lg z-40 transition-all duration-500 ease-in-out
-          ${menuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}
-        `}>
+        <div
+          id="mobile-menu"
+          aria-hidden={!menuOpen}
+          className={`
+            lg:hidden fixed inset-0 bg-gray-900/95 backdrop-blur-lg z-40 transition-all duration-500 ease-in-out
+            ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"}
+          `}
+        >
           <div className="flex flex-col items-center justify-center h-full space-y-8">
-            <a 
-              href="homePage" 
-              className="text-white text-2xl font-semibold hover:text-amber-400 transition-colors py-3"
+            <a
+              href="homePage"
+              className="text-white text-xl font-medium tracking-wide hover:text-amber-400 transition-colors py-3"
               onClick={() => setMenuOpen(false)}
             >
               Home
             </a>
-            <a 
-              href="/aboutPage" 
-              className="text-white text-2xl font-semibold hover:text-amber-400 transition-colors py-3"
+            <a
+              href="/aboutPage"
+              className="text-white text-xl font-medium tracking-wide hover:text-amber-400 transition-colors py-3"
               onClick={() => setMenuOpen(false)}
             >
               About Us
             </a>
-            <a 
-              href="#booking" 
-              className="text-white text-2xl font-semibold hover:text-amber-400 transition-colors py-3"
+            <a
+              href="#booking"
+              className="text-white text-xl font-medium tracking-wide hover:text-amber-400 transition-colors py-3"
               onClick={() => setMenuOpen(false)}
             >
               Booking
             </a>
-            <a 
-              href="#contact" 
-              className="text-white text-2xl font-semibold hover:text-amber-400 transition-colors py-3"
+            <a
+              href="#contact"
+              className="text-white text-xl font-medium tracking-wide hover:text-amber-400 transition-colors py-3"
               onClick={() => setMenuOpen(false)}
             >
               Contact Us
