@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import image2 from "./images/hamberger-menu.png"; // hamburger icon
-import image3 from "./images/logo.png";
+import image3 from "./images/logoNew.png";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -56,12 +56,12 @@ export default function NavBar() {
     <nav className="relative w-full px-4 py-3">
       <div className="mx-auto max-w-[1200px] flex items-center justify-between">
         {/* Logo */}
-        <div className="z-50">
+        <div className="z-50 relative min-w-[40px] min-h-[40px]">
           <a href="/">
             <img
               src={image3}
               alt="Logo"
-              className="logo-color w-24 md:w-32 lg:w-40 transition-all duration-300"
+              className="logo-color w-24 md:w-32 lg:w-40 transition-all duration-300 xl:ml-[-30px] 2xl:ml-[-150px] lg:min-w-[150px] pt-5"
             />
           </a>
         </div>
@@ -80,7 +80,7 @@ export default function NavBar() {
             <li>
               <a
                 href="homePage"
-                className="hover:text-amber-400 transition-colors duration-200 py-2 px-1"
+                className=" transition-colors duration-200 py-2 px-1"
                 data-aos="fade-down"
                 data-aos-duration="1500"
               >
@@ -90,7 +90,7 @@ export default function NavBar() {
             <li>
               <a
                 href="/aboutPage"
-                className="hover:text-amber-400 transition-colors duration-200 py-2 px-1"
+                className=" transition-colors duration-200 py-2 px-1"
                 data-aos="fade-down"
                 data-aos-duration="1800"
               >
@@ -100,7 +100,7 @@ export default function NavBar() {
             <li>
               <a
                 href="#booking"
-                className="hover:text-amber-400 transition-colors duration-200 py-2 px-1"
+                className=" transition-colors duration-200 py-2 px-1"
                 data-aos="fade-down"
                 data-aos-duration="2100"
               >
@@ -110,7 +110,7 @@ export default function NavBar() {
             <li>
               <a
                 href="#contact"
-                className="hover:text-amber-400 transition-colors duration-200 py-2 px-1"
+                className=" transition-colors duration-200 py-2 px-1"
                 data-aos="fade-down"
                 data-aos-duration="2400"
               >
@@ -144,28 +144,28 @@ export default function NavBar() {
           <div className="flex flex-col items-center justify-center h-full space-y-8">
             <a
               href="homePage"
-              className="text-white text-xl font-medium tracking-wide hover:text-amber-400 transition-colors py-3"
+              className="text-white text-xl font-medium tracking-wide  transition-colors py-3"
               onClick={() => setMenuOpen(false)}
             >
               Home
             </a>
             <a
               href="/aboutPage"
-              className="text-white text-xl font-medium tracking-wide hover:text-amber-400 transition-colors py-3"
+              className="text-white text-xl font-medium tracking-wide  transition-colors py-3"
               onClick={() => setMenuOpen(false)}
             >
               About Us
             </a>
             <a
               href="#booking"
-              className="text-white text-xl font-medium tracking-wide hover:text-amber-400 transition-colors py-3"
+              className="text-white text-xl font-medium tracking-wide  transition-colors py-3"
               onClick={() => setMenuOpen(false)}
             >
               Booking
             </a>
             <a
               href="#contact"
-              className="text-white text-xl font-medium tracking-wide hover:text-amber-400 transition-colors py-3"
+              className="text-white text-xl font-medium tracking-wide  transition-colors py-3"
               onClick={() => setMenuOpen(false)}
             >
               Contact Us

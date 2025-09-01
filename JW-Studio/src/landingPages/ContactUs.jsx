@@ -48,7 +48,7 @@ export default function ContactUs() {
     <>
       <NavBar />
 
-    <div className="bg-gray-50 text-gray-900 font-sans min-h-screen mt-25">
+    <div className="bg-gray-50 text-gray-900 font-sans min-h-screen">
       {/* Header */}
       
 
