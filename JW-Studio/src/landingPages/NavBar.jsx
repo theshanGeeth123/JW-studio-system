@@ -61,7 +61,7 @@ export default function NavBar() {
             <img
               src={image3}
               alt="Logo"
-              className="logo-color w-24 md:w-32 lg:w-40 transition-all duration-300 xl:ml-[-30px] 2xl:ml-[-150px] lg:min-w-[150px] pt-5"
+              className="logo-color w-24 md:w-32 lg:w-40 transition-all duration-300 pt-5"
             />
           </a>
         </div>

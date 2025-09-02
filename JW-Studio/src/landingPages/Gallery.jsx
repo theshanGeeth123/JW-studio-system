@@ -37,32 +37,33 @@ export default function Gallery() {
     <>
       <NavBar />
 
-      <section className="flex flex-col lg:flex-row pb-20 ">
+      {/* Hero Section */}
+      <section className="flex flex-col lg:flex-row pb-16 lg:pb-24 lg:mx-4 xl:mx-40 mt-8 lg:mt-12">
         {/* Left: content */}
         <div className="basis-full lg:basis-2/5 p-6 lg:p-10 flex items-center">
-          <div className="max-w-xl">
+          <div className="max-w-xl mx-auto lg:mx-0">
             <h1
-              className="text-3xl md:text-5xl font-bold leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900"
               data-aos="fade-right"
               data-aos-duration="1000"
             >
               Capture Your Beautiful Moments
             </h1>
-            <p className="mt-4 text-gray-600 md:text-lg">
+            <p className="mt-6 text-gray-600 md:text-lg leading-relaxed">
               From intimate portraits to grand celebrations, we craft timeless images
               you'll love to revisit. Let's plan your perfect shoot.
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="/booking"
-                className="inline-flex items-center rounded-xl bg-gray-900 px-6 py-3 text-white font-medium shadow hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+                className="inline-flex items-center rounded-xl bg-gray-900 px-6 py-3.5 text-white font-medium shadow-lg hover:bg-gray-800 hover:shadow-xl transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
               >
                 Book a Session
               </a>
               <a
                 href="/gallery"
-                className="inline-flex items-center rounded-xl border px-6 py-3 font-medium hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-300"
+                className="inline-flex items-center rounded-xl border border-gray-300 px-6 py-3.5 font-medium hover:bg-gray-50 hover:shadow-md transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-300"
               >
                 View Gallery
               </a>
@@ -72,7 +73,7 @@ export default function Gallery() {
 
         {/* Right: image */}
         <div
-          className="basis-full lg:basis-3/5 relative flex items-center justify-center bg-gray-100"
+          className="basis-full lg:basis-3/5 relative flex items-center justify-center bg-gray-100 rounded-xl overflow-hidden mx-4 lg:mx-0 shadow-lg"
           data-aos="zoom-in"
           data-aos-duration="2000"
         >
@@ -84,57 +85,78 @@ export default function Gallery() {
         </div>
       </section>
 
-      <section id="gallery-section" className="py-16 bg-black/86 rounded-t-[20px] ">
+      {/* Gallery Section */}
+      <section id="gallery-section" className="py-16 bg-gradient-to-b from-gray-900 to-black rounded-t-[40px] mt-8">
         {/* Local CSS-in-JSX for small animation to mimic the original .animate/zoom */}
         <style>{`
-          @keyframes zoom { from { transform: scale(0.92); opacity: .6 } to { transform: scale(1); opacity: 1 } }
+          @keyframes zoom { 
+            from { transform: scale(0.92); opacity: .6 } 
+            to { transform: scale(1); opacity: 1 } 
+          }
           .animate-zoom { animation: zoom .35s ease-in 1 }
         `}</style>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
-          <h2 className="text-4xl font-extrabold tracking-tight uppercase mb-10 text-white">
-            Gal<span className="text-red-600">lery</span>
-          </h2>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight uppercase text-white">
+              Gal<span className="text-red-600">lery</span>
+            </h2>
+            <div className="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
+          </div>
 
           {/* Filter Pills */}
-          <div className="flex justify-start sm:justify-center">
-            <ul className="inline-flex items-center gap-6">
+          <div className="flex justify-center mb-12 md:mb-16">
+            <div className="inline-flex flex-wrap justify-center gap-3 md:gap-4 bg-gray-800/50 p-2 rounded-xl backdrop-blur-sm">
               {categories.map((cat) => (
-                <li key={cat}>
-                  <button
-                    type="button"
-                    onClick={() => setActive(cat)}
-                    aria-pressed={active === cat}
-                    className={`px-6 py-3 rounded-md text-sm font-bold uppercase tracking-wide transition border ${
-                      active === cat
-                        ? "bg-red-600 text-white border-red-600 shadow"
-                        : "bg-white text-gray-900 border-gray-300 hover:bg-gray-100"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                </li>
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setActive(cat)}
+                  aria-pressed={active === cat}
+                  className={`px-5 py-2.5 md:px-6 md:py-3 rounded-lg text-sm md:text-base font-semibold uppercase tracking-wide transition-all duration-300 ${
+                    active === cat
+                      ? "bg-red-600 text-white shadow-lg"
+                      : "bg-transparent text-gray-300 hover:text-white hover:bg-gray-700/50"
+                  }`}
+                >
+                  {cat}
+                </button>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* Grid */}
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mt-10 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {filtered.map((img, idx) => (
-              <figure
+              <div
                 key={`${img.src}-${idx}`}
-                className="group overflow-hidden rounded-lg shadow-sm ring-1 ring-gray-200 bg-white"
+                className="group overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
               >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] animate-zoom"
-                  loading="lazy"
-                />
-              </figure>
+                <figure className="relative h-72 sm:h-80 w-full overflow-hidden">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 animate-zoom"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
+                    <div className="p-4 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                      <p className="text-sm font-medium">{img.tag}</p>
+                      <p className="text-xs opacity-90 mt-1">{img.alt}</p>
+                    </div>
+                  </div>
+                </figure>
+              </div>
             ))}
           </div>
+
+          {/* Empty state */}
+          {filtered.length === 0 && (
+            <div className="text-center py-16">
+              <p className="text-gray-400 text-lg">No images found in this category.</p>
+            </div>
+          )}
         </div>
       </section>
     </>
