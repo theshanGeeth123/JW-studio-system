@@ -38,7 +38,7 @@ export default function Gallery() {
       <NavBar />
 
       {/* Hero Section */}
-      <section className="flex flex-col lg:flex-row pb-16 lg:pb-24 lg:mx-4 xl:mx-40 mt-8 lg:mt-12">
+      <section className="flex flex-col lg:flex-row pb-16 lg:pb-24 lg:mx-4 xl:mx-40  ">
         {/* Left: content */}
         <div className="basis-full lg:basis-2/5 p-6 lg:p-10 flex items-center">
           <div className="max-w-xl mx-auto lg:mx-0">
