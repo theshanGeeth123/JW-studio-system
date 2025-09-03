@@ -1,359 +1,221 @@
-import { useState,useEffect } from "react";
-import { Camera, Clapperboard, PenLine, Search, Play, Github, Twitter, Linkedin, Facebook, Instagram } from "lucide-react";
+import React from 'react';
+import NavBar2 from './NavBar2';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-export default function AboutPage() {
+const AboutPage = () => {
 
-    useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
-
-
-  const [open, setOpen] = useState(false);
+  AOS.init();
+  
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-neutral-900">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-neutral-200">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex items-center justify-between py-4">
-            <a href="/" className="flex items-center gap-2">
-              <h1 className="text-2xl font-semibold tracking-wide text-neutral-800" data-aos="fade-right" data-aos-duration="2000">Lx Gallery</h1>
-            </a>
+    <>
 
-            {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-6">
-              <a href="" className="hover:underline">Home</a>
-              <a href="" className="underline underline-offset-4">About</a>
-              <a href="" className="hover:underline">Gallery</a>
-              <a href="" className="hover:underline">Blog</a>
-              <a href="" className="hover:underline">Contact</a>
+    <NavBar2 />
 
-              <form action="/" method="get" className="ml-2 flex items-center gap-2 border rounded-full pl-3 pr-1 py-1">
-                <Search className="w-4 h-4" aria-hidden />
-                <input
-                  type="search"
-                  name="q"
-                  placeholder="Search and hit enter..."
-                  aria-label="Search"
-                  className="outline-none border-0 text-sm bg-transparent min-w-[160px]"
-                />
-                <button type="submit" className="px-3 py-1 text-sm bg-neutral-900 text-white rounded-full">Search</button>
-              </form>
-            </nav>
-
-            {/* Mobile toggle */}
-            <button
-              className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-300"
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-              onClick={() => setOpen((v) => !v)}
-            >
-              <span className="sr-only">Toggle menu</span>
-              <div className="relative w-5 h-5">
-                <span
-                  className={`absolute left-0 right-0 h-0.5 bg-black transition-transform ${open ? "top-2.5 rotate-45" : "top-1"}`}
-                />
-                <span
-                  className={`absolute left-0 right-0 h-0.5 bg-black transition-opacity top-2.5 ${open ? "opacity-0" : "opacity-100"}`}
-                />
-                <span
-                  className={`absolute left-0 right-0 h-0.5 bg-black transition-transform ${open ? "top-2.5 -rotate-45" : "top-4"}`}
-                />
-              </div>
-            </button>
-          </div>
-
-          {/* Mobile menu */}
-          {open && (
-            <div id="mobile-menu" className="md:hidden pb-4">
-              <nav className="flex flex-col gap-3">
-                <a href="" className="py-2 border-b">Home</a>
-                <a href="" className="py-2 border-b">About</a>
-                <a href="" className="py-2 border-b">Gallery</a>
-                <a href="" className="py-2 border-b">Blog</a>
-                <a href="" className="py-2">Contact</a>
-              </nav>
-              <form action="/" method="get" className="mt-3 flex items-center gap-2 border rounded-full pl-3 pr-1 py-1">
-                <Search className="w-4 h-4" aria-hidden />
-                <input
-                  type="search"
-                  name="q"
-                  placeholder="Search and hit enter..."
-                  aria-label="Search"
-                  className="outline-none border-0 text-sm bg-transparent flex-1"
-                />
-                <button type="submit" className="px-3 py-1 text-sm bg-neutral-900 text-white rounded-full">Search</button>
-              </form>
-            </div>
-          )}
-        </div>
-      </header>
-
-      {/* Hero / Breadcrumb */}
-      <section
-        role="banner"
-        className="relative text-white"
-      >
-        <div
-          className="absolute inset-0 bg-[url('/img/lx-imges/lx4.jpg')] bg-cover bg-center"
-          aria-hidden
-        />
-        <div className="absolute inset-0 bg-black/50" aria-hidden />
-        <div className="relative max-w-6xl mx-auto px-4">
-          <div className="py-16 md:py-20 text-center">
-            <h2 className="text-3xl md:text-4xl font-semibold">About Us</h2>
-            <nav aria-label="Breadcrumb" className="mt-3">
-              <ol className="flex items-center justify-center gap-2 text-sm text-white/90">
-                <li>
-                  <a href="/" className="hover:underline">Home</a>
-                </li>
-                <li aria-hidden>›</li>
-                <li aria-current="page" className="text-white">About</li>
-              </ol>
-            </nav>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative py-20 bg-black text-white">
+        
+        
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-40"
+          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")' }}
+        ></div>
+        <div className="container mx-auto px-6 relative z-10 " data-aos="fade-up" data-aos-duration="2000">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Capturing Moments, Creating Memories</h1>
+            <p className="text-xl text-gray-300">Professional photography studio with over 15 years of excellence in visual storytelling</p>
           </div>
         </div>
       </section>
 
-      {/* About section */}
+      {/* Our Story Section */}
       <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-semibold">We Live For Passion</h3>
-              <div className="w-16 h-[3px] bg-neutral-900 mt-3 mb-5" />
-              <div className="space-y-4 text-neutral-700">
-                <p>
-                  Passion is energy so better to focus on the things which excites us. So, that we can perform our best at that. We should never compromise on our passion for anything.
-                </p>
-                <p>
-                  Being passionate requires dedication, hard work, focus, and the willingness to fail over and over again. However, if you're ready to put in the work, then being a passionate person who knows what he wants can bring excitement, joy, and a sense of true purpose to your life.
-                </p>
-                <p>
-                  One must always live for their passion because it is said that one person with passion is better than hundreds merely interested. Knowledge can be taught, skills can be acquired and experience is earned in time, but it's very hard to make someone passionate about something, hence passion is priceless.
-                </p>
-              </div>
-              <a href="/contact" className="inline-block mt-6 px-5 py-2 rounded-xl bg-neutral-900 text-white hover:bg-neutral-800">Contact Us</a>
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center overflow-hidden">
+            <div className="md:w-1/2 mb-10 md:mb-0 max-h-130">
+              <img  data-aos="fade-right" data-aos-duration="2000"
+                src="https://images.unsplash.com/photo-1650688331261-fd5e6de2e23a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                alt="Our studio" 
+                className="rounded-lg shadow-lg transform transition-transform duration-700 hover:rotate-1"
+              />
             </div>
-            <div>
-              <div className="relative rounded-xl overflow-hidden shadow-sm">
-                <img src="https://i.ibb.co/8MHrgJZ/ELYSIAN-FIELDS-3030.jpg" alt="About cover" className="w-full h-auto" />
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/30 to-transparent">
-                  <a
-                    href="https://youtu.be/9WZVhs7TDdA"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white text-neutral-900 shadow"
-                    aria-label="Play on YouTube"
-                  >
-                    <Play className="w-6 h-6" aria-hidden />
-                  </a>
-                </div>
-              </div>
+            <div className="md:w-1/2 md:pl-12">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Story</h2>
+              <p className="text-gray-600 mb-4">
+                Founded in 2008, Lenscraft Studios began as a small passion project between two photography enthusiasts. 
+                What started in a modest garage studio has now evolved into one of the region's most respected photography studios.
+              </p>
+              <p className="text-gray-600 mb-4">
+                Our journey has been guided by a simple philosophy: every moment has a story worth preserving. 
+                Through years of dedication to our craft, we've had the privilege of documenting thousands of special moments 
+                for families, businesses, and artists.
+              </p>
+              <p className="text-gray-600">
+                Today, we're proud to house state-of-the-art equipment and a team of award-winning photographers 
+                who continue to push the boundaries of creative expression.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-16 bg-neutral-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center max-w-xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-semibold">Why Choose Us</h2>
-          </div>
-
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
-            <article className="bg-white border rounded-2xl p-6 text-center">
-              <div className="mx-auto mb-3 w-12 h-12 rounded-xl border flex items-center justify-center">
-                <Clapperboard className="w-6 h-6" aria-hidden />
-              </div>
-              <h4 className="font-semibold mb-1">High Quality Images</h4>
-              <p className="text-neutral-600 text-sm">Images and photography fascinates everybody but we believe in quality and provide high quality images which are best to see, to show, to set.</p>
-            </article>
-
-            <article className="bg-white border rounded-2xl p-6 text-center">
-              <div className="mx-auto mb-3 w-12 h-12 rounded-xl border flex items-center justify-center">
-                <PenLine className="w-6 h-6" aria-hidden />
-              </div>
-              <h4 className="font-semibold mb-1">Abundant Experience</h4>
-              <p className="text-neutral-600 text-sm">Experiences makes a man perfect at everything. With a sufficient abundant experienced photographers we provide you the best images.</p>
-            </article>
-
-            <article className="bg-white border rounded-2xl p-6 text-center">
-              <div className="mx-auto mb-3 w-12 h-12 rounded-xl border flex items-center justify-center">
-                <Camera className="w-6 h-6" aria-hidden />
-              </div>
-              <h4 className="font-semibold mb-1">Modern Equipments</h4>
-              <p className="text-neutral-600 text-sm">With modern and updated equipments we are able to capture every moment in an attractive manner. We use latest equipments.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center max-w-xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-semibold">Our Team</h2>
-          </div>
-
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                name: "Lx",
-                role: "Developer",
-                img: "/img/bg-img/0AIB_github.jpg",
-                socials: [
-                  { href: "https://github.com/0AIB", Icon: Github, label: "GitHub" },
-                  { href: "https://www.twitter.com/Lx0980", Icon: Twitter, label: "Twitter" },
-                  { href: "https://www.linkedin.com/in/lx-rn-1310b0256", Icon: Linkedin, label: "LinkedIn" },
-                  { href: "https://in.pinterest.com/Lx0980", Icon: Instagram, label: "Pinterest" },
-                ],
-              },
-              {
-                name: "Tommy Kim",
-                role: "Photographer",
-                img: "/img/bg-img/20.jpg",
-                socials: [
-                  { href: "https://www.facebook.com", Icon: Facebook, label: "Facebook" },
-                  { href: "https://www.twitter.com/Lx0980/", Icon: Twitter, label: "Twitter" },
-                  { href: "https://www.linkedin.com/in/lx-rn-1310b0256", Icon: Linkedin, label: "LinkedIn" },
-                  { href: "https://in.pinterest.com/Lx0980/", Icon: Instagram, label: "Pinterest" },
-                ],
-              },
-              {
-                name: "Max McCormick",
-                role: "Photographer",
-                img: "/img/bg-img/21.jpg",
-                socials: [
-                  { href: "https://t.me/LxChatGroup", Icon: Instagram, label: "Telegram" },
-                  { href: "https://www.twitter.com/Lx0980", Icon: Twitter, label: "Twitter" },
-                  { href: "https://www.linkedin.com/in/lx-rn-1310b0256", Icon: Linkedin, label: "LinkedIn" },
-                  { href: "https://in.pinterest.com/Lx0980", Icon: Instagram, label: "Pinterest" },
-                ],
-              },
-              {
-                name: "Robert Ward",
-                role: "Photographer",
-                img: "/img/bg-img/22.jpg",
-                socials: [
-                  { href: "https://t.me/LxChatGroup", Icon: Instagram, label: "Telegram" },
-                  { href: "https://www.twitter.com/Lx0980", Icon: Twitter, label: "Twitter" },
-                  { href: "https://www.linkedin.com/in/lx-rn-1310b0256/", Icon: Linkedin, label: "LinkedIn" },
-                  { href: "https://in.pinterest.com/Lx0980", Icon: Instagram, label: "Pinterest" },
-                ],
-              },
-            ].map((m) => (
-              <article key={m.name} className="bg-white border rounded-2xl overflow-hidden">
-                <img src={m.img} alt="" className="w-full object-cover" />
-                <div className="p-4 text-center">
-                  <h5 className="font-semibold">{m.name}</h5>
-                  <span className="text-sm text-neutral-500">{m.role}</span>
-                </div>
-                <div className="pb-4 flex items-center justify-center gap-3">
-                  {m.socials.map(({ href, Icon, label }) => (
-                    <a
-                      key={href}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      className="inline-flex items-center justify-center w-8 h-8 rounded-full border hover:bg-neutral-50"
-                    >
-                      <Icon className="w-4 h-4" aria-hidden />
-                    </a>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Instagram grid (replaces carousel) */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-semibold">Follow Instagram</h2>
-            <p className="mt-1">
-              <a href="https://www.instagram.com/lx_0980/" className="underline" target="_blank" rel="noopener noreferrer">@lx_0980</a>
+      {/* Team Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Meet Our Team</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Our talented photographers and creative professionals bring diverse expertise 
+              to ensure every project receives the perfect visual treatment.
             </p>
           </div>
-
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {[
-              "/img/bg-img/x11.jpg.pagespeed.ic.EUL6KdRKnX.jpg",
-              "/img/bg-img/x12.jpg.pagespeed.ic.KtvCPGmp2L.jpg",
-              "/img/bg-img/x13.jpg.pagespeed.ic.Yyn_qfYWhe.jpg",
-              "/img/bg-img/x14.jpg.pagespeed.ic.HrODpshf0G.jpg",
-              "/img/bg-img/x15.jpg.pagespeed.ic.E9v-lQJEPj.jpg",
-              "/img/bg-img/x16.jpg.pagespeed.ic._rIX_EXu7n.jpg",
-            ].map((src, i) => (
-              <div key={i} className="relative group rounded-xl overflow-hidden">
-                <img src={src} alt="" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity grid place-items-center text-white">
-                  <a href="#" className="inline-flex items-center gap-2 text-sm">
-                    <Instagram className="w-4 h-4" aria-hidden />
-                    <span>Lx_0980</span>
-                  </a>
+          
+          {/* Enhanced Team Members Grid with Rotation Effects */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="text-center group" data-aos="zoom-in" data-aos-duration="2000">
+                <div className="w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden shadow-lg relative">
+                  <div className="w-full h-full transform transition-all duration-500 group-hover:rotate-3">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-full object-cover transform transition-all duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                  {/* Professional overlay effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
                 </div>
+                <h3 className="text-xl font-semibold text-gray-800 transition-colors duration-300 group-hover:text-blue-600">{member.name}</h3>
+                <p className="text-gray-600 mb-2 transition-colors duration-300 group-hover:text-gray-800">{member.role}</p>
+                <p className="text-gray-500 text-sm opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-48 transition-all duration-500 overflow-hidden">{member.bio}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="mt-auto bg-neutral-950 text-neutral-200">
-        <div className="max-w-6xl mx-auto px-4 py-10">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-xl font-semibold">Follow Lx GALLERY</h2>
-              <div className="mt-3 flex items-center gap-3 flex-wrap">
-                <a href="https://www.linkedin.com/in/lx-rn-1310b0256" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-neutral-800 hover:bg-neutral-700">
-                  <Linkedin className="w-4 h-4" aria-hidden />
-                  <span className="sr-only">LinkedIn</span>
-                </a>
-                <a href="https://www.instagram.com/lx_0980" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-neutral-800 hover:bg-neutral-700">
-                  <Instagram className="w-4 h-4" aria-hidden />
-                  <span className="sr-only">Instagram</span>
-                </a>
-                <a href="https://in.pinterest.com/Lx0980/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-neutral-800 hover:bg-neutral-700">
-                  <Clapperboard className="w-4 h-4" aria-hidden />
-                  <span className="sr-only">Pinterest</span>
-                </a>
-                <a href="https://www.quora.com/profile/Lx0980" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-neutral-800 hover:bg-neutral-700">
-                  <PenLine className="w-4 h-4" aria-hidden />
-                  <span className="sr-only">Quora</span>
-                </a>
-                <a href="https://github.com/0AIB" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-neutral-800 hover:bg-neutral-700">
-                  <Github className="w-4 h-4" aria-hidden />
-                  <span className="sr-only">GitHub</span>
-                </a>
-              </div>
-            </div>
-            <div>
-              <h2 className="text-xl font-semibold">Stay up to date on the latest from Lx Gallery</h2>
-              <form className="mt-3 flex gap-3">
-                <input type="email" placeholder="Enter your email" className="px-3 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-white placeholder-neutral-400 w-full" />
-                <button type="button" className="px-4 py-2 rounded-lg bg-white text-black">Subscribe</button>
-              </form>
-            </div>
-          </div>
-
-          <hr className="my-6 border-neutral-800" />
-
-          <div className="text-center text-sm">
-            <p>
-              Copyright © 2023 All rights reserved | Made with <span className="text-rose-500">❤</span> by {" "}
-              <a href="#" target="_blank" rel="noopener noreferrer" className="underline">Alex</a>
+      {/* Values Section */}
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Values</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              These core principles guide everything we do, from client interactions to final deliverables.
             </p>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {values.map((value, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center transform transition-transform duration-300 hover:-translate-y-2">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center transform transition-transform duration-500 hover:rotate-12">
+                  <span className="text-2xl text-blue-600">{value.icon}</span>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{value.title}</h3>
+                <p className="text-gray-600">{value.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </footer>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-black text-white">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {stats.map((stat, index) => (
+              <div key={index} className="transform transition-transform duration-300 hover:scale-105">
+                <p className="text-4xl md:text-5xl font-bold mb-2">{stat.value}</p>
+                <p className="text-gray-400">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-600 text-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to Create Something Beautiful Together?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Let's discuss your vision and how we can bring it to life through our photography services.
+          </p>
+          <button className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 transform hover:-translate-y-1">
+            Contact Us 
+          </button>
+        </div>
+      </section>
     </div>
+    </>
   );
-}
+};
 
+// Team members data
+const teamMembers = [
+  {
+    name: "Sarah Johnson",
+    role: "Lead Photographer",
+    bio: "Specializing in portrait and commercial photography with 12+ years experience. Sarah's work has been featured in several international publications.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    name: "Michael Chen",
+    role: "Studio Director",
+    bio: "Expert in lighting techniques and studio management with a background in fine arts. Michael ensures every project meets our high standards.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    name: "Elena Rodriguez",
+    role: "Creative Director",
+    bio: "Award-winning photographer with expertise in editorial and fashion photography. Elena brings creative vision to every project.",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+  },
+  {
+    name: "James Wilson",
+    role: "Post-Production Specialist",
+    bio: "Digital artist and retouching expert with a keen eye for detail and color grading. James ensures every image is perfect before delivery.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+  }
+];
+
+// Values data
+const values = [
+  {
+    icon: "🎯",
+    title: "Excellence",
+    description: "We pursue perfection in every shot, paying attention to the smallest details to deliver exceptional quality."
+  },
+  {
+    icon: "💡",
+    title: "Creativity",
+    description: "We approach each project with fresh eyes, developing unique concepts that tell your story in compelling ways."
+  },
+  {
+    icon: "🤝",
+    title: "Collaboration",
+    description: "We work closely with our clients throughout the process, ensuring their vision is realized and exceeded."
+  }
+];
+
+// Stats data
+const stats = [
+  {
+    value: "15+",
+    label: "Years Experience"
+  },
+  {
+    value: "2500+",
+    label: "Projects Completed"
+  },
+  {
+    value: "98%",
+    label: "Client Satisfaction"
+  },
+  {
+    value: "12",
+    label: "Industry Awards"
+  }
+];
+
+export default AboutPage;
