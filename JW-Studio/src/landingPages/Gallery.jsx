@@ -1,33 +1,49 @@
 import React, { useMemo, useState } from "react";
 import img1 from '../assets/images/GalleryCoverimage.jpg'
-import p1 from '../assets/images/p1.jpg'
-import p2 from '../assets/images/p2.jpg'
-import p3 from '../assets/images/p3.jpg'
-import p4 from '../assets/images/p4.jpg'
-import p5 from '../assets/images/p5.jpg'
-import p6 from '../assets/images/p6.jpg'
-import p7 from '../assets/images/p7.jpg'
-import p8 from '../assets/images/p8.jpg'
-import p9 from '../assets/images/p9.jpg'
+
+import i1 from './gallery_images/img1.jpg'
+import i2 from './gallery_images/i2.jpeg'
+import i3 from './gallery_images/i3.jpeg'
+import i4 from './gallery_images/i4.jpeg'
+import i5 from './gallery_images/i5.jpeg'
+import i6 from './gallery_images/i6.jpeg'
+import i7 from './gallery_images/i7.jpeg'
+import i8 from './gallery_images/i8.jpeg'
+import i9 from './gallery_images/i9.jpeg'
+import i10 from './gallery_images/i10.jpeg'
+import i11 from './gallery_images/i11.jpeg'
+import i12 from './gallery_images/i12.jpeg'
+import i13 from './gallery_images/i13.jpeg'
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 
 export default function Gallery() {
   const [active, setActive] = useState("All");
 
-  const categories = ["All", "Nature", "Fashion", "Wedding"];
+  const categories = ["All", "Event", "Fashion", "Wedding"];
 
   const images = useMemo(
     () => [
-      { src: p1, alt: "Puffin bird spreading wings", tag: "Nature" },
-      { src: p2, alt: "Tall waterfall in jungle", tag: "Nature" },
-      { src: p3, alt: "Fashion portrait", tag: "Fashion" },
-      { src: p4, alt: "Editorial fashion shot", tag: "Fashion" },
-      { src: p5, alt: "Wedding couple", tag: "Wedding" },
-      { src: p6, alt: "Forest with mist", tag: "Nature" },
-      { src: p7, alt: "Wedding rings on book", tag: "Wedding" },
-      { src: p8, alt: "Runway fashion model", tag: "Fashion" },
-      { src: p9, alt: "Bride bouquet", tag: "Wedding" },
+      
+      { src: i1, alt: "", tag: "Wedding" },
+      { src: i4, alt: "", tag: "Wedding" },
+      { src: i5, alt: "", tag: "Event" },
+      { src: i2, alt: "", tag: "Wedding" },
+      
+      
+      { src: i6, alt: "", tag: "Fashion" },
+      { src: i3, alt: "", tag: "Wedding" },
+      { src: i8, alt: "", tag: "Event" },
+        { src: i11, alt: "", tag: "Event" },
+        { src: i10, alt: "", tag: "Event" },
+      { src: i7, alt: "", tag: "Fashion" },
+     
+      { src: i9, alt: "", tag: "Event" },
+      
+     
+      { src: i12, alt: "", tag: "Fashion" },
+      
+      
     ],
     []
   );
@@ -57,13 +73,13 @@ export default function Gallery() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="/booking"
+                href="/contactUs"
                 className="inline-flex items-center rounded-xl bg-gray-900 px-6 py-3.5 text-white font-medium shadow-lg hover:bg-gray-800 hover:shadow-xl transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
               >
-                Book a Session
+                Contact Us
               </a>
               <a
-                href="/gallery"
+                href="#gallery-section"
                 className="inline-flex items-center rounded-xl border border-gray-300 px-6 py-3.5 font-medium hover:bg-gray-50 hover:shadow-md transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-300"
               >
                 View Gallery
@@ -108,7 +124,7 @@ export default function Gallery() {
 
           {/* Filter Pills */}
           <div className="flex justify-center mb-12 md:mb-16">
-            <div className="inline-flex flex-wrap justify-center gap-3 md:gap-4 bg-gray-800/50 p-2 rounded-xl backdrop-blur-sm">
+            <div className="inline-flex flex-wrap justify-center gap-3 md:gap-4 bg-gray-800/50 p-2 rounded-xl backdrop-blur-sm" data-aos="flip-up">
               {categories.map((cat) => (
                 <button
                   key={cat}
@@ -128,9 +144,9 @@ export default function Gallery() {
           </div>
 
           {/* Grid */}
-          <div className="mt-10 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="mt-10 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" >
             {filtered.map((img, idx) => (
-              <div
+              <div data-aos="fade-up"
                 key={`${img.src}-${idx}`}
                 className="group overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
               >
