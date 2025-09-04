@@ -62,7 +62,7 @@ export default function NavBar() {
 
   return (
     <nav className="relative w-full px-4 py-3">
-      <div className="mx-auto max-w-[1200px] flex items-center justify-between">
+      <div className="mx-auto max-w-[1200px] flex items-center justify-between ">
         {/* Logo */}
         <div className="z-50 relative min-w-[40px] min-h-[40px]">
           <button
@@ -80,7 +80,7 @@ export default function NavBar() {
         </div>
 
         {/* Desktop Navigation (Pill style) */}
-        <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2">
+        <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 max-h-[50px]">
           <ul
             className={[
               "rounded-[32px] bg-gray-900/80 backdrop-blur py-3",
