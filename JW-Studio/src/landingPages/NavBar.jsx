@@ -1,5 +1,6 @@
 // NavBar.jsx
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -8,6 +9,13 @@ import image3 from "./images/logoNew.png";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  // helper to navigate + close mobile menu if open
+  const go = (path) => {
+    navigate(path);
+    if (menuOpen) setMenuOpen(false);
+  };
 
   // Init AOS + close menu on scroll
   useEffect(() => {
@@ -57,13 +65,18 @@ export default function NavBar() {
       <div className="mx-auto max-w-[1200px] flex items-center justify-between">
         {/* Logo */}
         <div className="z-50 relative min-w-[40px] min-h-[40px]">
-          <a href="/">
+          <button
+            type="button"
+            aria-label="Go to home"
+            onClick={() => go("/")}
+            className="focus:outline-none"
+          >
             <img
               src={image3}
               alt="Logo"
               className="logo-color w-24 md:w-32 lg:w-40 transition-all duration-300 pt-5"
             />
-          </a>
+          </button>
         </div>
 
         {/* Desktop Navigation (Pill style) */}
@@ -77,45 +90,41 @@ export default function NavBar() {
               "shadow-lg text-base md:text-lg",
             ].join(" ")}
           >
-            <li>
-              <a
-                href="homePage"
-                className=" transition-colors duration-200 py-2 px-1"
-                data-aos="fade-down"
-                data-aos-duration="1500"
+            <li data-aos="fade-down" data-aos-duration="1500">
+              <button
+                type="button"
+                onClick={() => go("/home")}
+                className="transition-colors duration-200 py-2 px-1 focus:outline-none"
               >
                 Home
-              </a>
+              </button>
             </li>
-            <li>
-              <a
-                href="/aboutPage"
-                className=" transition-colors duration-200 py-2 px-1"
-                data-aos="fade-down"
-                data-aos-duration="1800"
+            <li data-aos="fade-down" data-aos-duration="1800">
+              <button
+                type="button"
+                onClick={() => go("/about")}
+                className="transition-colors duration-200 py-2 px-1 focus:outline-none"
               >
                 About Us
-              </a>
+              </button>
             </li>
-            <li>
-              <a
-                href="#booking"
-                className=" transition-colors duration-200 py-2 px-1"
-                data-aos="fade-down"
-                data-aos-duration="2100"
+            <li data-aos="fade-down" data-aos-duration="2100">
+              <button
+                type="button"
+                onClick={() => go("/gallery")}
+                className="transition-colors duration-200 py-2 px-1 focus:outline-none"
               >
-                Booking
-              </a>
+                Gallery
+              </button>
             </li>
-            <li>
-              <a
-                href="#contact"
-                className=" transition-colors duration-200 py-2 px-1"
-                data-aos="fade-down"
-                data-aos-duration="2400"
+            <li data-aos="fade-down" data-aos-duration="2400">
+              <button
+                type="button"
+                onClick={() => go("/contact")}
+                className="transition-colors duration-200 py-2 px-1 focus:outline-none"
               >
                 Contact Us
-              </a>
+              </button>
             </li>
           </ul>
         </div>
@@ -136,40 +145,41 @@ export default function NavBar() {
         <div
           id="mobile-menu"
           aria-hidden={!menuOpen}
-          className={`
-            lg:hidden fixed inset-0 bg-gray-900/95 backdrop-blur-lg z-40 transition-all duration-500 ease-in-out
-            ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"}
-          `}
+          className={`lg:hidden fixed inset-0 bg-gray-900/95 backdrop-blur-lg z-40 transition-all duration-500 ease-in-out ${
+            menuOpen
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-full pointer-events-none"
+          }`}
         >
           <div className="flex flex-col items-center justify-center h-full space-y-8">
-            <a
-              href="homePage"
-              className="text-white text-xl font-medium tracking-wide  transition-colors py-3"
-              onClick={() => setMenuOpen(false)}
+            <button
+              type="button"
+              onClick={() => go("/home")}
+              className="text-white text-xl font-medium tracking-wide transition-colors py-3 focus:outline-none"
             >
               Home
-            </a>
-            <a
-              href="/aboutPage"
-              className="text-white text-xl font-medium tracking-wide  transition-colors py-3"
-              onClick={() => setMenuOpen(false)}
+            </button>
+            <button
+              type="button"
+              onClick={() => go("/about")}
+              className="text-white text-xl font-medium tracking-wide transition-colors py-3 focus:outline-none"
             >
               About Us
-            </a>
-            <a
-              href="#booking"
-              className="text-white text-xl font-medium tracking-wide  transition-colors py-3"
-              onClick={() => setMenuOpen(false)}
+            </button>
+            <button
+              type="button"
+              onClick={() => go("/gallery")}
+              className="text-white text-xl font-medium tracking-wide transition-colors py-3 focus:outline-none"
             >
-              Booking
-            </a>
-            <a
-              href="#contact"
-              className="text-white text-xl font-medium tracking-wide  transition-colors py-3"
-              onClick={() => setMenuOpen(false)}
+              Booking / Gallery
+            </button>
+            <button
+              type="button"
+              onClick={() => go("/contact")}
+              className="text-white text-xl font-medium tracking-wide transition-colors py-3 focus:outline-none"
             >
               Contact Us
-            </a>
+            </button>
           </div>
         </div>
       </div>

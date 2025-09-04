@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar2 from './NavBar2';
+import NavBar2 from './NavBar';
 import AOS from "aos";
 import "aos/dist/aos.css";
 

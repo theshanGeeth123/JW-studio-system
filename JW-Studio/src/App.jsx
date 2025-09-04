@@ -8,10 +8,11 @@ import ContactUs from './landingPages/ContactUs';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<AboutPage />} />
+      <Route path="/" element={<ContactUs />} />
+      <Route path="/home" element={<HomePage />} />
       <Route path='/aboutPage' element={<AboutPage/>}/>
-      <Route path='/homePage' element={<HomePage/>}/>
       <Route path="/galleryPage" element={<Gallery />} />
+      <Route path="/contactUs" element={<ContactUs />} />
     </Routes>
   )
 }
