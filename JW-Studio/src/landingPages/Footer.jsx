@@ -3,11 +3,11 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function Footer() {
   return (
-    <footer className="lx-footer relative bg-gray-950 px-4 py-8 text-center text-[#f4f4f4] border-t-1 rounded-t-[20px] shadow-lg b">
+    <footer className="lx-footer relative bg-gray-950 px-4 py-8 text-center text-[#f4f4f4] border-t-1  shadow-lg b">
       {/* Subscribe */}
       <div className="lx-footer__subscribe" data-aos="fade-up">
         <h3 className="mb-4 font-medium">
-          Stay up to date on the latest from Lx Gallery
+          Stay up to date on the latest from JW Studio
         </h3>
       </div>
 
@@ -16,11 +16,12 @@ function Footer() {
         <h4 className="mb-4 font-semibold">Follow JW-STUDIO </h4>
         <div className="lx-footer__icons flex justify-center gap-2">
           {[
+            { icon: "fab fa-facebook-f", url: "https://www.facebook.com/jwphotography.lk" },
             { icon: "fab fa-linkedin-in", url: "#" },
             { icon: "fab fa-instagram", url: "#" },
-            { icon: "fab fa-pinterest-p", url: "#" },
-            { icon: "fab fa-quora", url: "#" },
-            { icon: "fab fa-github", url: "#" },
+            // { icon: "fab fa-pinterest-p", url: "#" },
+            // { icon: "fab fa-quora", url: "#" },
+            // { icon: "fab fa-github", url: "#" },
           ].map((item, index) => (
             <a
               key={index}
@@ -38,12 +39,12 @@ function Footer() {
       {/* Meta info */}
       <div className="lx-footer__meta mt-8 text-[#b3b3b3]" data-aos="fade-up">
         <p>
-          Total Website Visit
+          
           <br />
           
         </p>
         <p className="text-[0.9rem]">
-          Copyright © 2023 All rights reserved | Made {" "}
+          Copyright © 2025 All rights reserved | Made {" "}
           <span className="text-red-600"></span> by{" "}
           <a href="#" className="text-[#00aaff]">
             JW

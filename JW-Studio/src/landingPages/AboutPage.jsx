@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar2 from './NavBar';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Footer from './Footer';
 
 const AboutPage = () => {
 
@@ -134,19 +135,10 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Create Something Beautiful Together?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Let's discuss your vision and how we can bring it to life through our photography services.
-          </p>
-          <button className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 transform hover:-translate-y-1">
-            Contact Us 
-          </button>
-        </div>
-      </section>
+     
     </div>
+
+    <Footer />
     </>
   );
 };

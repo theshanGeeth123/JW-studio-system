@@ -10,6 +10,7 @@ import p7 from '../assets/images/p7.jpg'
 import p8 from '../assets/images/p8.jpg'
 import p9 from '../assets/images/p9.jpg'
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 export default function Gallery() {
   const [active, setActive] = useState("All");
@@ -159,6 +160,8 @@ export default function Gallery() {
           )}
         </div>
       </section>
+
+      <Footer />
     </>
   );
 }

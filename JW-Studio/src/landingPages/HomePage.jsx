@@ -231,214 +231,216 @@ export default function HomePage() {
 
       {/* ===== Banner ===== */}
       <div className="banner mt-20 grid md:[grid-template-columns:repeat(6,minmax(0,1fr))] bg-black md:mt-0">
-        {/* Card 1 (full bleed dark with content overlay style) */}
-        <div className="relative isolate py-20 px-8 md:col-span-2 bg-[#090909b9]" data-aos="fade-up" data-aos-duration="1500" />
+  {/* Card 1 (full bleed dark with content overlay style) */}
+  <div className="relative isolate py-20 px-8 md:col-span-2 bg-[#090909b9]" data-aos="fade-up" data-aos-duration="1500" />
 
-        <div className="px-8 py-8 bg-[#231f1f] text-[aliceblue] z-10" data-aos="fade-up" data-aos-duration="1700">
-          <h4 className="text-[1.2rem] font-medium text-[aliceblue]">Asian</h4>
-          <p className="mb-2 text-[0.9rem] text-[rgba(240,248,255,0.69)]">
-            Asia boasts incredibly diverse landscapes, from the Himalayan mountain and lush tropical rainforests to pristine beaches.
-          </p>
-          <a href="#" className="text-white font-semibold text-[1rem]">Read More</a>
-        </div>
+  <div className="px-8 py-8 bg-[#231f1f] text-[aliceblue] z-10" data-aos="fade-up" data-aos-duration="1700">
+    <h4 className="text-[1.2rem] font-medium text-[aliceblue]">Equipment Rentals</h4>
+    <p className="mb-2 text-[0.9rem] text-[rgba(240,248,255,0.69)]">
+      From professional cameras and lenses to studio lighting and tripods — rent everything you need for your next shoot at affordable rates.
+    </p>
+    <a href="#" className="text-white font-semibold text-[1rem]">Learn More</a>
+  </div>
 
-        <div className="px-8 py-8 bg-[#2a2c32] text-[aliceblue] z-10" data-aos="fade-up" data-aos-duration="1900">
-          <h4 className="text-[1.2rem] font-medium text-[aliceblue]">Europe</h4>
-          <p className="mb-2 text-[0.9rem] text-[rgba(240,248,255,0.69)]">
-            A visit to Europe isn't complete without experiencing the charm and significance of this tiny sovereign state within a city!
-          </p>
-          <a href="#" className="text-white font-semibold text-[1rem]">Read More</a>
-        </div>
+  <div className="px-8 py-8 bg-[#2a2c32] text-[aliceblue] z-10" data-aos="fade-up" data-aos-duration="1900">
+    <h4 className="text-[1.2rem] font-medium text-[aliceblue]">Studio Sessions</h4>
+    <p className="mb-2 text-[0.9rem] text-[rgba(240,248,255,0.69)]">
+      Book a professional photography session with our in-house team. Perfect for portraits, product shoots, and creative projects.
+    </p>
+    <a href="#" className="text-white font-semibold text-[1rem]">Book a Session</a>
+  </div>
 
-        <div className="px-8 py-8 bg-[#3f414b]" data-aos="fade-up" data-aos-duration="2100">
-          <h4 className="text-[1.2rem] font-medium text-[aliceblue]">Book Now</h4>
-          <p className="mb-2 text-[0.9rem] text-[rgba(240,248,255,0.69)]">
-            Ensure a clean and intuitive design that allows users to easily navigate through the booking process.
-          </p>
-          <a href="#" className="text-white font-semibold text-[1rem]">Read More</a>
-        </div>
-      </div>
+  <div className="px-8 py-8 bg-[#3f414b]" data-aos="fade-up" data-aos-duration="2100">
+    <h4 className="text-[1.2rem] font-medium text-[aliceblue]">Shop & Accessories</h4>
+    <p className="mb-2 text-[0.9rem] text-[rgba(240,248,255,0.69)]">
+      Explore our collection of cameras, gear, and accessories available for purchase to upgrade your photography experience.
+    </p>
+    <a href="#" className="text-white font-semibold text-[1rem]">Shop Now</a>
+  </div>
+</div>
+
 
       {/* ===== Packages (Glass • Smooth) ===== */}
-      <section
-        id="packages"
-        aria-labelledby="packages-bw-heading"
-        className="relative"
-        style={{ backgroundColor: "#0a0a0a", color: "#f5f5f5" }}
+     <section
+  id="packages"
+  aria-labelledby="packages-bw-heading"
+  className="relative"
+  style={{ backgroundColor: "#0a0a0a", color: "#f5f5f5" }}
+>
+  <div className="mx-auto max-w-[1200px] px-[clamp(2rem,4vw,4rem)] py-[clamp(2rem,4vw,4rem)]">
+    <div className="mb-[clamp(1.5rem,3vw,2.5rem)] grid gap-3" data-aos="fade-up">
+      <span className="tracking-[0.22em] uppercase text-[#cfcfcf] font-semibold text-[0.8rem]">
+        Studio Packages
+      </span>
+      <h2 id="packages-bw-heading" className="m-0 text-[clamp(1.75rem,2.8vw,3rem)] leading-[1.15]">
+        Choose a shoot today — scale your creativity tomorrow.
+      </h2>
+      <p className="m-0 max-w-[65ch] text-[#d8d8d8]">
+        Book photography sessions, rent pro gear, and purchase accessories in one place.
+        Packages below are examples—swap with your real studio pricing and inclusions anytime.
+      </p>
+    </div>
+
+    <div
+      className="grid grid-cols-12 gap-[clamp(1rem,2vw,1.5rem)]"
+      data-aos="fade-down"
+      data-aos-duration="1500"
+    >
+      {/* Starter */}
+      <article
+        aria-label="Starter plan"
+        data-aos="zoom-in"
+        className={[
+          "packages-bw__reveal col-span-12 sm:col-span-6 lg:col-span-4",
+          "relative isolate overflow-hidden rounded-2xl border border-white/15",
+          "bg-white/5 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)]",
+          "transform-gpu [will-change:transform]",
+          "transition-[transform,box-shadow,opacity] duration-200 ease-out",
+          "hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]",
+          "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
+          "after:pointer-events-none after:absolute after:-left-1/2 after:-top-full after:h-[200%] after:w-[120%]",
+          "after:rotate-[8deg] after:bg-[linear-gradient(105deg,transparent_0_35%,rgba(255,255,255,0.08)_45%,rgba(255,255,255,0.16)_50%,rgba(255,255,255,0.08)_55%,transparent_65%_100%)]",
+          "after:translate-x-[-40%] after:transition-transform after:duration-300 hover:after:translate-x-[55%]",
+        ].join(" ")}
       >
-        <div className="mx-auto max-w-[1200px] px-[clamp(2rem,4vw,4rem)] py-[clamp(2rem,4vw,4rem)]">
-          <div className="mb-[clamp(1.5rem,3vw,2.5rem)] grid gap-3" data-aos="fade-up">
-            <span className="tracking-[0.22em] uppercase text-[#cfcfcf] font-semibold text-[0.8rem]">
-              Website Packages
-            </span>
-            <h2 id="packages-bw-heading" className="m-0 text-[clamp(1.75rem,2.8vw,3rem)] leading-[1.15]">
-              Pick a plan that fits today — scale tomorrow.
-            </h2>
-            <p className="m-0 max-w-[65ch] text-[#d8d8d8]">
-              Monochrome, minimal, and fast. Dummy plans ready to swap for your real pricing.
-              Pure HTML &amp; CSS with smooth hover effects and tasteful motion.
-            </p>
-          </div>
-
-          <div
-            className="grid grid-cols-12 gap-[clamp(1rem,2vw,1.5rem)]"
-            data-aos="fade-down"
-            data-aos-duration="1500"
-          >
-            {/* Starter */}
-            <article
-              aria-label="Starter plan"
-              data-aos="zoom-in"
-              className={[
-                "packages-bw__reveal col-span-12 sm:col-span-6 lg:col-span-4",
-                "relative isolate overflow-hidden rounded-2xl border border-white/15",
-                "bg-white/5 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)]",
-                "transform-gpu [will-change:transform]",
-                "transition-[transform,box-shadow,opacity] duration-200 ease-out",
-                "hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]",
-                "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
-                "after:pointer-events-none after:absolute after:-left-1/2 after:-top-full after:h-[200%] after:w-[120%]",
-                "after:rotate-[8deg] after:bg-[linear-gradient(105deg,transparent_0_35%,rgba(255,255,255,0.08)_45%,rgba(255,255,255,0.16)_50%,rgba(255,255,255,0.08)_55%,transparent_65%_100%)]",
-                "after:translate-x-[-40%] after:transition-transform after:duration-300 hover:after:translate-x-[55%]",
-              ].join(" ")}
-            >
-              <div className="relative z-[2] p-[1.4rem]">
-                <span className="inline-block rounded-full border border-white/20 bg-white/5 px-[0.6rem] py-[0.35rem] text-[0.72rem] font-bold tracking-[0.12em] text-[#cfcfcf] uppercase">
-                  Starter
-                </span>
-                <h3 className="m-0 mt-[0.9rem] mb-[0.35rem] text-[1.45rem] leading-[1.2]">
-                  Launch-ready essentials
-                </h3>
-                <p className="m-0 mb-[0.9rem] text-[0.95rem] text-[#cfcfcf]">
-                  Perfect for personal sites &amp; MVPs
-                </p>
-                <p className="m-0 mb-[0.6rem] mt-[0.2rem] text-[2rem] font-extrabold">
-                  $199 <small className="text-[0.9rem] font-semibold text-[#cfcfcf]">/ one-time</small>
-                </p>
-                <ul className="m-0 list-none p-0">
-                  {[
-                    "Single-page layout (up to 4 sections)",
-                    "Responsive design + SEO basics",
-                    "1 round of revisions",
-                  ].map((t) => (
-                    <li
-                      key={t}
-                      className="flex items-center gap-2 border-b border-dashed border-white/15 py-[0.55rem] last:border-b-0"
-                    >
-                      <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-305 after:scale-x-[-1] after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-
-            {/* Pro (Featured) */}
-            <article
-              aria-label="Pro plan"
-              data-aos="zoom-in"
-              className={[
-                "packages-bw__reveal col-span-12 sm:col-span-6 lg:col-span-4",
-                "relative isolate overflow-hidden rounded-2xl border border-white/20",
-                "bg-white/7 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)]",
-                "transform-gpu [will-change:transform]",
-                "transition-[transform,box-shadow,opacity] duration-200 ease-out",
-                "hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]",
-                "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
-                "after:pointer-events-none after:absolute after:-left-1/2 after:-top-full after:h-[200%] after:w-[120%]",
-                "after:rotate-[8deg] after:bg-[linear-gradient(105deg,transparent_0_35%,rgba(255,255,255,0.10)_45%,rgba(255,255,255,0.22)_50%,rgba(255,255,255,0.10)_55%,transparent_65%_100%)]",
-                "after:translate-x-[-40%] after:transition-transform after:duration-300 hover:after:translate-x-[55%]",
-              ].join(" ")}
-            >
-              <div className="relative z-[2] p-[1.4rem]">
-                <span className="inline-block rounded-full border border-white/30 bg-white/10 px-[0.6rem] py-[0.35rem] text-[0.72rem] font-bold tracking-[0.12em] text-[#e9e9e9] uppercase">
-                  Most Popular
-                </span>
-                <h3 className="m-0 mt-[0.9rem] mb-[0.35rem] text-[1.45rem] leading-[1.2]">
-                  Pro growth <br /> bundle
-                </h3>
-                <p className="m-0 mb-[0.9rem] text-[0.95rem] text-[#cfcfcf]">
-                  Best for small businesses
-                </p>
-                <p className="m-0 mb-[0.6rem] mt-[0.2rem] text-[2rem] font-extrabold">
-                  $499 <small className="text-[0.9rem] font-semibold text-[#cfcfcf]">/ one-time</small>
-                </p>
-                <ul className="m-0 list-none p-0">
-                  {[
-                    "Multi-page site (up to 6 pages)",
-                    "Blog-ready + contact forms",
-                    "3 rounds of revisions",
-                  ].map((t) => (
-                    <li
-                      key={t}
-                      className="flex items-center gap-2 border-b border-dashed border-white/15 py-[0.55rem] last:border-b-0"
-                    >
-                      <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-305 after:scale-x-[-1] after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-
-            {/* Elite */}
-            <article
-              aria-label="Elite plan"
-              data-aos="zoom-in"
-              className={[
-                "packages-bw__reveal col-span-12 sm:col-span-6 lg:col-span-4",
-                "relative isolate overflow-hidden rounded-2xl border border-white/15",
-                "bg-white/5 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)]",
-                "transform-gpu [will-change:transform]",
-                "transition-[transform,box-shadow,opacity] duration-200 ease-out",
-                "hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]",
-                "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
-                "after:pointer-events-none after:absolute after:-left-1/2 after:-top-full after:h-[200%] after:w-[120%]",
-                "after:rotate-[8deg] after:bg-[linear-gradient(105deg,transparent_0_35%,rgba(255,255,255,0.08)_45%,rgba(255,255,255,0.18)_50%,rgba(255,255,255,0.08)_55%,transparent_65%_100%)]",
-                "after:translate-x-[-40%] after:transition-transform after:duration-300 hover:after:translate-x-[55%]",
-              ].join(" ")}
-            >
-              <div className="relative z-[2] p-[1.4rem]">
-                <span className="inline-block rounded-full border border-white/20 bg-white/5 px-[0.6rem] py-[0.35rem] text-[0.72rem] font-bold tracking-[0.12em] text-[#cfcfcf] uppercase">
-                  Elite
-                </span>
-                <h3 className="m-0 mt-[0.9rem] mb-[0.35rem] text-[1.45rem] leading-[1.2]">
-                  Custom &amp; <br /> scalable
-                </h3>
-                <p className="m-0 mb-[0.9rem] text-[0.95rem] text-[#cfcfcf]">
-                  For serious products &amp; brands
-                </p>
-                <p className="m-0 mb-[0.6rem] mt-[0.2rem] text-[2rem] font-extrabold">
-                  $999 <small className="text-[0.9rem] font-semibold text-[#cfcfcf]">/ one-time</small>
-                </p>
-                <ul className="m-0 list-none p-0">
-                  {[
-                    "Custom layouts + CMS setup",
-                    "Performance tuned & analytics",
-                    "Priority support & handoff",
-                  ].map((t) => (
-                    <li
-                      key={t}
-                      className="flex items-center gap-2 border-b border-dashed border-white/15 py-[0.55rem] last:border-b-0"
-                    >
-                      <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-305 after:scale-x-[-1] after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          </div>
-
-          <div
-            className="my-8 h-px bg-[linear-gradient(90deg,transparent,#2a2a2a,transparent)]"
-            role="presentation"
-          />
-          <p className="mt-1 text-[0.9rem] text-[#cfcfcf]">
-            All plans are examples with dummy data. Replace text, prices, and features with your real content anytime.
+        <div className="relative z-[2] p-[1.4rem]">
+          <span className="inline-block rounded-full border border-white/20 bg-white/5 px-[0.6rem] py-[0.35rem] text-[0.72rem] font-bold tracking-[0.12em] text-[#cfcfcf] uppercase">
+            Starter
+          </span>
+          <h3 className="m-0 mt-[0.9rem] mb-[0.35rem] text-[1.45rem] leading-[1.2]">
+            Mini Session Essentials
+          </h3>
+          <p className="m-0 mb-[0.9rem] text-[0.95rem] text-[#cfcfcf]">
+            Perfect for portraits &amp; quick campaigns
           </p>
+          <p className="m-0 mb-[0.6rem] mt-[0.2rem] text-[2rem] font-extrabold">
+            $50 <small className="text-[0.9rem] font-semibold text-[#cfcfcf]">/ one-time</small>
+          </p>
+          <ul className="m-0 list-none p-0">
+            {[
+              "45-minute studio shoot (1 backdrop)",
+              "5 expertly edited photos (web & print)",
+              "Basic gear included (lighting + tripod)",
+            ].map((t) => (
+              <li
+                key={t}
+                className="flex items-center gap-2 border-b border-dashed border-white/15 py-[0.55rem] last:border-b-0"
+              >
+                <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-305 after:scale-x-[-1] after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
+                {t}
+              </li>
+            ))}
+          </ul>
         </div>
-      </section>
+      </article>
+
+      {/* Pro (Featured) */}
+      <article
+        aria-label="Pro plan"
+        data-aos="zoom-in"
+        className={[
+          "packages-bw__reveal col-span-12 sm:col-span-6 lg:col-span-4",
+          "relative isolate overflow-hidden rounded-2xl border border-white/20",
+          "bg-white/7 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)]",
+          "transform-gpu [will-change:transform]",
+          "transition-[transform,box-shadow,opacity] duration-200 ease-out",
+          "hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]",
+          "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
+          "after:pointer-events-none after:absolute after:-left-1/2 after:-top-full after:h-[200%] after:w-[120%]",
+          "after:rotate-[8deg] after:bg-[linear-gradient(105deg,transparent_0_35%,rgba(255,255,255,0.10)_45%,rgba(255,255,255,0.22)_50%,rgba(255,255,255,0.10)_55%,transparent_65%_100%)]",
+          "after:translate-x-[-40%] after:transition-transform after:duration-300 hover:after:translate-x-[55%]",
+        ].join(" ")}
+      >
+        <div className="relative z-[2] p-[1.4rem]">
+          <span className="inline-block rounded-full border border-white/30 bg-white/10 px-[0.6rem] py-[0.35rem] text-[0.72rem] font-bold tracking-[0.12em] text-[#e9e9e9] uppercase">
+            Most Popular
+          </span>
+        <h3 className="m-0 mt-[0.9rem] mb-[0.35rem] text-[1.45rem] leading-[1.2]">
+            Studio Pro <br /> Bundle
+          </h3>
+          <p className="m-0 mb-[0.9rem] text-[0.95rem] text-[#cfcfcf]">
+            Ideal for brands, couples, &amp; products
+          </p>
+          <p className="m-0 mb-[0.6rem] mt-[0.2rem] text-[2rem] font-extrabold">
+            $100 <small className="text-[0.9rem] font-semibold text-[#cfcfcf]">/ one-time</small>
+          </p>
+          <ul className="m-0 list-none p-0">
+            {[
+              "2-hour studio session + lighting assistant",
+              "15 edited photos + contact sheet",
+              "Optional gear add-ons (lenses, modifiers)",
+            ].map((t) => (
+              <li
+                key={t}
+                className="flex items-center gap-2 border-b border-dashed border-white/15 py-[0.55rem] last:border-b-0"
+              >
+                <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-305 after:scale-x-[-1] after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
+
+      {/* Elite */}
+      <article
+        aria-label="Elite plan"
+        data-aos="zoom-in"
+        className={[
+          "packages-bw__reveal col-span-12 sm:col-span-6 lg:col-span-4",
+          "relative isolate overflow-hidden rounded-2xl border border-white/15",
+          "bg-white/5 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.35)]",
+          "transform-gpu [will-change:transform]",
+          "transition-[transform,box-shadow,opacity] duration-200 ease-out",
+          "hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]",
+          "motion-reduce:transition-none motion-reduce:hover:translate-y-0",
+          "after:pointer-events-none after:absolute after:-left-1/2 after:-top-full after:h-[200%] after:w-[120%]",
+          "after:rotate-[8deg] after:bg-[linear-gradient(105deg,transparent_0_35%,rgba(255,255,255,0.08)_45%,rgba(255,255,255,0.18)_50%,rgba(255,255,255,0.08)_55%,transparent_65%_100%)]",
+          "after:translate-x-[-40%] after:transition-transform after:duration-300 hover:after:translate-x-[55%]",
+        ].join(" ")}
+      >
+        <div className="relative z-[2] p-[1.4rem]">
+          <span className="inline-block rounded-full border border-white/20 bg-white/5 px-[0.6rem] py-[0.35rem] text-[0.72rem] font-bold tracking-[0.12em] text-[#cfcfcf] uppercase">
+            Elite
+          </span>
+          <h3 className="m-0 mt-[0.9rem] mb-[0.35rem] text-[1.45rem] leading-[1.2]">
+            Full-Day &amp; <br /> Commercial
+          </h3>
+          <p className="m-0 mb-[0.9rem] text-[0.95rem] text-[#cfcfcf]">
+            For campaigns, teams, and catalogs
+          </p>
+          <p className="m-0 mb-[0.6rem] mt-[0.2rem] text-[2rem] font-extrabold">
+            $200 <small className="text-[0.9rem] font-semibold text-[#cfcfcf]">/ one-time</small>
+          </p>
+          <ul className="m-0 list-none p-0">
+            {[
+              "Full-day studio + crew & set support",
+              "Unlimited gear package (bodies, lenses, lights)",
+              "Priority retouching & same-day previews",
+            ].map((t) => (
+              <li
+                key={t}
+                className="flex items-center gap-2 border-b border-dashed border-white/15 py-[0.55rem] last:border-b-0"
+              >
+                <span className="relative h-[0.95rem] w-[0.95rem] flex-none rounded-[3px] border border-white/25 bg-[linear-gradient(180deg,#111,#0d0d0d)] after:content-[''] after:absolute after:left-[0.12rem] after:top-[0.18rem] after:h-[0.25rem] after:w-[0.55rem] after:rotate-305 after:scale-x-[-1] after:translate-x-[1px] after:-translate-y-[1px] after:border-2 after:border-white after:border-l-0 after:border-t-0" />
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div
+      className="my-8 h-px bg-[linear-gradient(90deg,transparent,#2a2a2a,transparent)]"
+      role="presentation"
+    />
+    <p className="mt-1 text-[0.9rem] text-[#cfcfcf]">
+      Package details are placeholders for a camera studio. Replace titles, prices, and features with your actual offerings anytime.
+    </p>
+  </div>
+</section>
+
 
       <div className="bg-black"><Footer/></div>
 

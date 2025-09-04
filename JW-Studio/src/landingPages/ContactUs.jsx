@@ -3,6 +3,9 @@ import emailjs from "@emailjs/browser";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function ContactUs() {
   // FORM STATE
@@ -10,6 +13,10 @@ export default function ContactUs() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
+
+   useEffect(() => {
+      AOS.init({ duration: 1000, once: true });
+    }, []);
 
   // ✅ EmailJS credentials (prefer env vars in production)
   const serviceId =
@@ -76,7 +83,7 @@ export default function ContactUs() {
   return (
     <>
       <NavBar />
-      <div className="bg-gray-50 text-gray-900 font-sans min-h-screen">
+      <div className="bg-gray-50 text-gray-900 font-sans min-h-screen ml-13 mr-13 mb-13 rounded-[20px]" data-aos="zoom-in">
         <main className="container mx-auto px-4 py-12">
           {/* Page Title */}
           <div className="text-center mb-16">
@@ -177,8 +184,8 @@ export default function ContactUs() {
                     <div>
                       <h3 className="font-medium">Our Studio</h3>
                       <p className="text-gray-600">
-                        123 Photography Lane, Studio District <br />
-                        New York, NY 10001
+                        Matara ,Sri Lanka <br />
+                        
                       </p>
                     </div>
                   </div>
@@ -190,8 +197,8 @@ export default function ContactUs() {
                     <div>
                       <h3 className="font-medium">Phone</h3>
                       <p className="text-gray-600">
-                        +1 (212) 555-7890 <br />
-                        Mon–Fri, 9am–6pm EST
+                        076 082 0558 <br />
+                        Mon–Fri, 9am–6pm 
                       </p>
                     </div>
                   </div>
@@ -203,8 +210,7 @@ export default function ContactUs() {
                     <div>
                       <h3 className="font-medium">Email</h3>
                       <p className="text-gray-600">
-                        info@jwstudio.com <br />
-                        bookings@jwstudio.com
+                        jwstduio12345@gmail.com
                       </p>
                     </div>
                   </div>
@@ -256,50 +262,7 @@ export default function ContactUs() {
         </main>
       </div>
 
-      <footer className="lx-footer relative bg-gray-950 px-4 py-8 text-center text-[#f4f4f4] border-t-1 rounded-t-[20px] shadow-lg">
-        {/* Subscribe */}
-        <div className="lx-footer__subscribe" data-aos="fade-up">
-          <h3 className="mb-4 font-medium">
-            Stay up to date on the latest from Lx Gallery
-          </h3>
-        </div>
-
-        {/* Social icons */}
-        <div className="lx-footer__social mt-8" data-aos="fade-up">
-          <h4 className="mb-4 font-semibold">Follow JW-STUDIO </h4>
-          <div className="lx-footer__icons flex justify-center gap-2">
-            {[
-              { icon: "fab fa-linkedin-in", url: "#" },
-              { icon: "fab fa-instagram", url: "#" },
-              { icon: "fab fa-pinterest-p", url: "#" },
-              { icon: "fab fa-quora", url: "#" },
-              { icon: "fab fa-github", url: "#" },
-            ].map((item, index) => (
-              <a
-                key={index}
-                href={item.url}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex h-[38px] w-[38px] items-center justify-center rounded-full bg-white text-black text-[1.2rem] transition-transform duration-300 hover:scale-110"
-              >
-                <i className={item.icon}></i>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* Meta info */}
-        <div className="lx-footer__meta mt-8 text-[#b3b3b3]" data-aos="fade-up">
-          <p>Total Website Visit<br /></p>
-          <p className="text-[0.9rem]">
-            Copyright © 2023 All rights reserved | Made{" "}
-            <span className="text-red-600"></span> by{" "}
-            <a href="#" className="text-[#00aaff]">
-              JW
-            </a>
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
