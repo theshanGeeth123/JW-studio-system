@@ -16,8 +16,12 @@ import i12 from './gallery_images/i12.jpeg'
 import i13 from './gallery_images/i13.jpeg'
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 export default function Gallery() {
+
+   const navigate = useNavigate();
+
   const [active, setActive] = useState("All");
 
   const categories = ["All", "Event", "Fashion", "Wedding"];
@@ -73,7 +77,7 @@ export default function Gallery() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="/contactUs"
+                onClick={() => navigate('/contactUs')}
                 className="inline-flex items-center rounded-xl bg-gray-900 px-6 py-3.5 text-white font-medium shadow-lg hover:bg-gray-800 hover:shadow-xl transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
               >
                 Contact Us
