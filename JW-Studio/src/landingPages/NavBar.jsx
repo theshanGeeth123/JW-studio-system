@@ -90,11 +90,11 @@ export default function NavBar() {
               "shadow-lg text-base md:text-lg",
             ].join(" ")}
           >
-            <li data-aos="fade-down" data-aos-duration="1500">
+            <li data-aos="fade-down" data-aos-duration="1500" >
               <button
                 type="button"
                 onClick={() => go("/home")}
-                className="transition-colors duration-200 py-2 px-1 focus:outline-none"
+                className="transition-colors duration-200 py-2 px-1 focus:outline-none hover:cursor-pointer hover:underline hover:underline-offset-8"
               >
                 Home
               </button>
@@ -102,8 +102,8 @@ export default function NavBar() {
             <li data-aos="fade-down" data-aos-duration="1800">
               <button
                 type="button"
-                onClick={() => go("/about")}
-                className="transition-colors duration-200 py-2 px-1 focus:outline-none"
+                onClick={() => go("/aboutPage")}
+                className="transition-colors duration-200 py-2 px-1 focus:outline-none hover:cursor-pointer hover:underline hover:underline-offset-8"
               >
                 About Us
               </button>
@@ -111,8 +111,8 @@ export default function NavBar() {
             <li data-aos="fade-down" data-aos-duration="2100">
               <button
                 type="button"
-                onClick={() => go("/gallery")}
-                className="transition-colors duration-200 py-2 px-1 focus:outline-none"
+                onClick={() => go("/galleryPage")}
+                className="transition-colors duration-200 py-2 px-1 focus:outline-none hover:cursor-pointer hover:underline hover:underline-offset-8"
               >
                 Gallery
               </button>
@@ -120,8 +120,8 @@ export default function NavBar() {
             <li data-aos="fade-down" data-aos-duration="2400">
               <button
                 type="button"
-                onClick={() => go("/contact")}
-                className="transition-colors duration-200 py-2 px-1 focus:outline-none"
+                onClick={() => go("/contactUs")}
+                className="transition-colors duration-200 py-2 px-1 focus:outline-none hover:cursor-pointer hover:underline hover:underline-offset-8"
               >
                 Contact Us
               </button>
@@ -161,21 +161,21 @@ export default function NavBar() {
             </button>
             <button
               type="button"
-              onClick={() => go("/about")}
+              onClick={() => go("/aboutPage")}
               className="text-white text-xl font-medium tracking-wide transition-colors py-3 focus:outline-none"
             >
               About Us
             </button>
             <button
               type="button"
-              onClick={() => go("/gallery")}
+              onClick={() => go("/galleryPage")}
               className="text-white text-xl font-medium tracking-wide transition-colors py-3 focus:outline-none"
             >
-              Booking / Gallery
+              Gallery
             </button>
             <button
               type="button"
-              onClick={() => go("/contact")}
+              onClick={() => go("/contactUs")}
               className="text-white text-xl font-medium tracking-wide transition-colors py-3 focus:outline-none"
             >
               Contact Us
